@@ -655,3 +655,299 @@ let price3 = 0;
 
 console.log(`The price3 Is ${price3 || 200}`); // lw el price falsey value haikon el output 200
 console.log(`The price3 Is ${price3 ?? 200}`); // lw el price Null + Undefined(let price;) haikon el output 200 3'eer kda haital3 ai 7aga maktoba
+
+
+/*
+  Switch Statement
+  switch(expression) {
+    Case 1:
+      // Code Block
+      break;
+    Case 2:
+      // Code Block
+      break;
+    Default: ==> ya3ni lw mafeesh ai case hai7ot el default
+      // Code Block
+  }
+  - Default Ordering
+  - Multiple Match
+  - ===
+*/
+
+let day = "A";
+
+switch (day) {
+  default:
+    console.log("Unknown Day");
+    break;
+  case 0:
+    console.log("Saturday");
+    break;
+  case 1:
+    console.log("Sunday");
+    break;
+  case 2:
+  case 3:
+    console.log("Monday");
+    break;
+}
+
+/*
+  Switch Challenge
+*/
+let job2 = "Manager";
+let salary2 = 0;
+switch (job2){
+  case "Manager":
+    salary2 = 8000;
+    console.log(`My Salary is ${salary2}`);
+    break;
+  case "IT" || "Support":
+    salary2 = 6000;
+    console.log(`My Salary is ${salary2}`);
+    break;
+  case "Developer" || "Designer":
+    salary2 = 7000;
+    console.log(`My Salary is ${salary2}`);
+    break;
+  
+  default:
+    salary2 = 4000;
+    console.log(`Salary is ${salary2}`);
+    break;
+}
+
+
+
+let job = "Manager";
+let salary = 0;
+
+if (job === "Manager") {
+  salary = 8000;
+} else if (job === "IT" || job === "Support") {
+  salary = 6000;
+} else if (job === "Developer" || job === "Designer") {
+  salary = 7000;
+} else {
+  salary = 4000;
+}
+console.log(salary);
+
+
+/*
+  If Challenge
+*/
+let holidays2 = 0;
+let money2 = 0;
+
+if (holidays2 === 0){
+  money2 = 5000;
+  console.log(`My Money is ${money2}`);
+} else if (holidays2 === 1 || holidays2 === 2){
+  money2 = 3000;
+  console.log(`My Money is ${money2}`);
+
+} else if (holidays2 === 3){
+  money = 2000;
+  console.log(`My Money is ${money2}`);
+
+} else if (holidays2 === 4){
+  money2 = 1000;
+  console.log(`My Money is ${money2}`);
+
+} else if (holidays2 === 5){
+  money2 = 0;
+  console.log(`My Money is ${money2}`);
+
+} else {
+  money2 = 0;
+  console.log(`Money is ${money2}`);
+}
+
+
+
+let holidays = 0;
+let money = 0;
+
+switch (holidays) {
+  
+  case 0:
+    money = 5000;
+    console.log(`My Money is ${money}`);
+    break;
+  case 1:
+  case 2:
+    money = 3000;
+    console.log(`My Money is ${money}`);
+    break;
+  case 3:
+    money = 2000;
+    console.log(`My Money is ${money}`);
+    break;
+  case 4:
+    money = 1000;
+    console.log(`My Money is ${money}`);
+    break;
+  case 5:
+    money = 0;
+    console.log(`My Money is ${money}`);
+    break;
+  default:
+    money = 0;
+    console.log(`My Money is ${money}`);
+}
+
+/*
+  Arrays
+  - Create Arrays [Two Methods] new Array() + []
+  - Access Arrays Elements
+  - Nested Arrays
+  - Check For Array ==> Array.isArray(arr);
+*/
+
+let myFriends = ["Ahmed", "Mohamed", "Sayed", ["Marwan", "Ali"]];
+
+console.log(`Hello ${myFriends[0]}`);
+console.log(`Hello ${myFriends[2]}`);
+console.log(`${myFriends[1][2]}`);
+console.log(`Hello ${myFriends[3][1]}`);
+console.log(`${myFriends[3][1][2]}`);
+
+console.log(myFriends);
+myFriends[1] = "Gamal"; //Change Arrays Elements
+console.log(myFriends);
+myFriends[3] = ["Sameh", "Ameer"];
+console.log(myFriends);
+
+console.log(Array.isArray(myFriends)); //Check For Array
+
+/*
+  Array Methods
+  - Length
+*/
+// console.log (myFriends.length); ==> number of array
+// Index Start From 0 [ 0, 1, 2, 3, 4 ]
+
+let myFriends2 = ["Ahmed", "Mohamed", "Sayed", "Alaa"];
+
+//myFriends[myFriends2.length] ="Osama"; ==> ya3nii add Osama in array sequance
+//myFriends[myFriends2.length-1] ="Osama"; ==> ya3nii replace Alaa by Osama
+myFriends2.length = 2; // control array ==> print two element ["Ahmed", "Mohamed"]
+
+console.log(myFriends2);
+
+/*
+  Arrays Methods [Adding And Removing]
+  - unshift("", "") Add Element To The First
+  - push("", "") Add Element To The End
+  - shift() Remove First Element From Array
+  - pop() Remove Last Element From Array
+*/
+
+let myFriends3 = ["Ahmed", "Mohamed", "Sayed", "Alaa"];
+
+console.log(myFriends3);
+
+myFriends3.unshift("Osama", "Nabil");
+
+console.log(myFriends3);
+
+myFriends3.push("Samah", "Eman");
+
+console.log(myFriends3);
+
+let first = myFriends3.shift();
+
+console.log(myFriends3);
+
+console.log(`First Name Is ${first}`);
+
+let last = myFriends3.pop();
+
+console.log(myFriends3);
+
+console.log(`Last Name Is ${last}`);
+
+/*
+  Arrays Methods [Search]
+  - indexOf(Search Element, From Index [Opt]) => search from first index
+  - lastIndexOf(Search Element, From Index [Opt]) => search from last index
+  - includes(valueToFind, fromIndex [Opt]) [ES7]
+*/
+
+let myFriends4 = ["Ahmed", "Mohamed", "Sayed", "Alaa", "Ahmed"];
+
+console.log(myFriends4);
+
+console.log(myFriends4.indexOf("Ahmed"));
+console.log(myFriends4.indexOf("Ahmed", 2));
+
+console.log(myFriends4.lastIndexOf("Ahmed"));
+console.log(myFriends4.lastIndexOf("Ahmed", -2));
+
+console.log(myFriends4.includes("Ahmed"));
+console.log(myFriends4.includes("Ahmed", 2));
+
+if (myFriends4.lastIndexOf("Osama") === -1) {
+  console.log("Not Found");
+}
+
+console.log(myFriends4.indexOf("Osama"));
+console.log(myFriends4.lastIndexOf("Osama"));
+
+/*
+  Arrays Methods [Sort]
+  - sort(Function [Opt])
+  - reverse
+*/
+
+let myFriends5 = [10, "Sayed", "Mohamed", "90", 9000, 100, 20, "10", -20, -10];
+
+console.log(myFriends5);
+console.log(myFriends5.sort());
+console.log(myFriends5.reverse());
+console.log(myFriends5.sort().reverse());
+
+/*
+  Arrays Methods [Slicing]
+  --- If Start Is Undefined => 0
+  --- Negative Count From End
+  --- If End Is Undefined || > Indexes => Slice To The End Array.length
+  --- Return New Array
+  - splice(Start [Mand], DeleteCount [Opt] [0 No Remove], The Items To Add [Opt])
+  --- If Negative => Start From The End
+*/
+
+let myFriends6 = ["Ahmed", "Sayed", "Ali", "Osama", "Gamal", "Ameer"];
+console.log(myFriends6);
+console.log(myFriends6.slice()); // => All Array
+console.log(myFriends6.slice(1)); // start from 1 ("Sayed")
+console.log(myFriends6.slice(1, 3)); // slice(Start [Opt], End [Opt] Not Including End) ==> ("Sayed", "Ali")
+console.log(myFriends6.slice(-3)); // from left ("Osama", "Gamal", "Ameer")
+console.log(myFriends6.slice(1, -2)); // from left ("Sayed", "Ali", "Osama")
+console.log(myFriends6.slice(-4, -2));
+console.log(myFriends6); //Return New Array
+
+myFriends6.splice(1, 2, "Sameer", "Samara");
+
+console.log(myFriends6);
+
+/*
+  Arrays Methods [Joining]
+  - concat(array, array) => Return A New Array ==> ya3ni badeef el NewFrindes w el schoolfriends m3 b3d fil allfriends
+
+  - join(Separator) ==> bt7akm eh elli ykoun been kol item
+*/
+
+let myFriends7 = ["Ahmed", "Sayed", "Ali", "Osama", "Gamal", "Ameer"];
+let myNewFriends = ["Samar", "Sameh"];
+let schoolFriends = ["Haytham", "Shady"];
+
+let allFriends = myFriends7.concat(myNewFriends, schoolFriends, "Gameel", [1, 2]); 
+console.log(allFriends);
+
+console.log(allFriends.join());
+console.log(allFriends.join(""));
+console.log(allFriends.join(" @ "));
+console.log(allFriends.join("|"));
+console.log(allFriends.join("|").toUpperCase());

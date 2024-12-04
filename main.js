@@ -222,9 +222,9 @@ Type Coercion (Type Casting)
 
 let g = "100";
 let h = 20;
-let i = true;
+let i1 = true;
 
-console.log(+g + h + i);
+console.log(+g + h + i1);
 
 /*
 Assignment Operators
@@ -951,3 +951,535 @@ console.log(allFriends.join(""));
 console.log(allFriends.join(" @ "));
 console.log(allFriends.join("|"));
 console.log(allFriends.join("|").toUpperCase());
+
+/*
+  Array Challenge
+*/
+
+let zero = 0;
+
+let counter = 3;
+
+let my = ["Ahmed", "Mazero", "Elham", "Osama", "Gamal", "Ameer"];
+
+
+// Write Code Here
+
+console.log(my);
+
+// my.unshift("Osama");
+console.log(my.slice(zero, counter).reverse());
+
+
+console.log(my);
+console.log(my.slice(0, 4).reverse());
+ // ["Osama", "Elham", "Mazero", "Ahmed"];
+
+console.log(my.slice("????")); // ["Elham", "Mazero"]
+
+console.log(); // "Elzero"
+
+console.log(); // "rO"
+
+
+/*
+  Loop
+  - For
+  for ([1-initialization] [2-condition] [3-action after loop]) {
+    // Block Of Code
+  }
+*/
+
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+/*
+  Loop
+  - Loop On Sequences
+*/
+
+let myFriends8 = [1, 2, "Osama", "Ahmed", 3, 4, "Sayed", 6, "Ali"];
+
+let onlyNames = [];
+
+for (let i = 0; i < myFriends8.length; i++) {
+  if (typeof myFriends8[i] === "string") {
+    onlyNames.push(myFriends8[i]);
+  }
+}
+
+console.log(onlyNames);
+
+// console.log(myFriends8[0]);
+// console.log(myFriends8[1]);
+// console.log(myFriends8[2]);
+// console.log(myFriends8[3]);
+// console.log(myFriends8[4]);
+
+// for (let i = 0; i < myFriends8.length; i++) {
+//   console.log(myFriends8[i]);
+// }
+
+
+/*
+  Loop
+  - Nested Loops
+*/
+
+let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor"];
+
+let colors = ["Red", "Green", "Black"];
+
+let models = [2020, 2021];
+
+for (let i = 0; i < products.length; i++) {
+  console.log("#".repeat(15));
+  console.log(`# ${products[i]}`);
+  console.log("#".repeat(15));
+  console.log("Colors: ");
+  for (let j = 0; j < colors.length; j++) {
+    console.log(`- ${colors[j]}`);
+  }
+  console.log("Models: ");
+  for (let k = 0; k < models.length; k++) {
+    console.log(`- ${models[k]}`);
+  }
+}
+/*
+  Loop Control
+  - Break ==> stop on or befor element
+  - Continue ==> pass without print like numbers
+  - Label:
+      mainloop ==> lable for main
+      nestedloop ==> lable for nested loop
+*/
+
+let products2 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor"];
+
+let colors2 = ["Red", "Green", "Black"];
+
+mainLoop: for (let i = 0; i < products2.length; i++) {
+  console.log(products2[i]);
+  nestedLoop: for (let j = 0; j < colors2.length; j++) {
+    console.log(`- ${colors2[j]}`);
+    if (colors2[j] === "Green") {
+      break mainLoop; // awl ama ywsal ll green t7t el keyboard hai3ml break
+    }
+  }
+}
+
+/*
+  Loop For Advanced Example
+*/
+
+let products3 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+let ii = 0;
+
+for (;;) { //badl (let ii = 0; i < products3.length; i++)
+  console.log(products3[ii]);
+  ii++;
+  if (ii === products3.length) break; // badl el i < products3.length ya3nii lama y7a22 kol content el array y3ml break
+}
+
+/*
+  Products Practice
+*/
+
+let products4 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+let colors3 = ["Red", "Green", "Blue"];
+let showCount = 3;
+
+document.write(`<h1>Show ${showCount} Products4</h1>`);
+
+for (let i = 0; i < showCount; i++) {
+  document.write(`<div>`);
+  document.write(`<h3>[${i + 1}] ${products4[i]}</h3>`); // i+1 ==> be5ali el tarteeb mazboot
+  for (let j = 0; j < colors3.length; j++) {
+    document.write(`<p> - ${colors3[j]}</p>`); // hai5alii el colors ta7t b3d
+  }
+  document.write(`<p> - ${colors3.join(" | ")}</p>`);  // hai5alii el colors gamb b3d w benhom |
+  document.write(`</div>`);
+}
+
+/*
+  Loop
+  - While ==> like for
+*/
+
+let products5 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone2"];
+
+let index = 0;
+
+while (index < products5.length) {
+  console.log(products5[index]);
+  index += 1; // ==> index++
+}
+
+/*
+  Loop
+  - Do / While
+*/
+
+let products6 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+
+let i = 0;
+
+do {
+  console.log(i);
+  i++;
+} while (false);
+
+console.log(i);
+
+/*
+  Loop Challenge
+*/
+let myAdmins = ["Ahmed", "Osama", "Sayed", "Stop", "Samera"];
+let myEmployees = ["Amgad", "Samah", "Ameer", "Omar", "Othman", "Amany", "Samia", "Anwar"];
+let startWithA = [];
+let startWithO = [];
+let startWithS = [];
+
+document.write(`<div>We Have X Admins</div>`);
+document.write(`<div>We Have 3 Admins</div>`);
+// for (let k = 0; k < 3; k++){
+//   document.write(`<div>`);
+//   document.write(`<h3>The Admin for Team ${k+1} is ${myAdmins[k]} </h3>`)
+//   document.write(`<h2>Team Members</h3>`)
+ 
+//   document.write(`</div>`);
+
+// }
+for (let l = 0; l < myEmployees.length; l++){
+    
+  if(myEmployees[l].startsWith("A")){
+    startWithA.push(myEmployees[l]);
+
+    // document.write(`<h4>- ${l+1} ${myEmployees[l]}</h4>`);
+
+  }
+  else if(myEmployees[l].startsWith("O")){
+    startWithO.push(myEmployees[l]);
+
+    // document.write(`<h4>- ${l+1} ${myEmployees[l]}</h4>`);
+  }
+  else if(myEmployees[l].startsWith("S")){
+    startWithS.push(myEmployees[l]);
+
+    // document.write(`<h4>- ${l+1} ${startWithS[l]}</h4>`);
+  }
+}
+
+
+document.write(`<h3>The Admin for Team ${1} is ${myAdmins[0]} </h3>`)
+document.write(`<h2>Team Members</h3>`)
+
+document.write(`</div>`);
+for (let l = 0; l < startWithA.length; l++){
+  document.write(`<h4>- ${l+1} ${startWithA[l]}</h4>`);
+}
+
+document.write(`<h3>The Admin for Team ${1} is ${myAdmins[1]} </h3>`)
+document.write(`<h2>Team Members</h3>`)
+
+document.write(`</div>`);
+for (let l = 0; l < startWithO.length; l++){
+  document.write(`<h4>- ${l+1} ${startWithO[l]}</h4>`);
+}
+
+document.write(`<h3>The Admin for Team ${1} is ${myAdmins[2]} </h3>`)
+document.write(`<h2>Team Members</h3>`)
+
+document.write(`</div>`);
+for (let l = 0; l < startWithS.length; l++){
+  document.write(`<h4>- ${l+1} ${startWithS[l]}</h4>`);
+}
+
+
+
+/*
+  Function
+  - What Is Function ?
+  - User-Defined vs Built In
+  - Syntax + Basic Usage
+  - Example From Real Life
+  - Parameter + Argument ==> variable + value
+  - Practical Example
+*/
+
+function sayHello(userName) {
+  console.log(`Hi ${userName}`);
+}
+
+sayHello("Osama");
+sayHello("Sayed");
+sayHello("Ali");
+
+/*
+  Function Advanced Examples
+*/
+
+function sayHello(userName, age) {
+  if (age < 20) {
+    console.log(`App is Not Suitable For You`);
+  } else {
+    console.log(`Hello ${userName} Your Age is ${age}`);
+  }
+}
+
+sayHello("Osama", 38);
+sayHello("Sayed", 40);
+sayHello("Ali", 18);
+
+
+function generatYears(start, end, exclude){ // exclude ==> 3lshan a7dd beha el item elli msh 3aizah yzhar
+  for(let i=start; i<=end; i++){
+    if(i === exclude){
+      continue;
+    }
+    console.log(i);
+  }
+}
+generatYears(1995, 2017, 2016); // value of function parameter
+
+/*
+  Function
+  - Return
+  - Automatic Semicolon Insertion [No Line Terminator Allowed]
+  - Interrupting
+*/
+
+function generate(start, end) {
+  for (let i = start; i <= end; i++) {
+    if (i === 15) {
+      return `Interrupting`;
+    }
+    console.log(i);
+  }
+}
+
+generate(10, 20);
+
+/*
+  Function
+  - Default Function Parameters
+  - Function Parameters Default [Undefined]
+  - Old Strategies [Condition + Logical Or]
+  - ES6 Method
+*/
+
+function sayHello(username = "Unknown", age = "Unknown") { // control parametes value lw mafeesh value haiktb Unknown
+  // if (age === undefined) {
+  //   age = "Unknown";
+  // }
+  // age = age || "Unknown";
+  return `Hello ${username} Your Age Is ${age}`;
+}
+
+console.log(sayHello());
+
+/*
+  Function
+  - Rest Parameters ==> ...numbers ==> lw ana msh 3arfa total el content
+  - Only One Allowed
+  - Must Be Last Element
+*/
+
+function calc(...numbers) { // caclculate numbers
+  // console.log(Array.isArray(numbers));
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i]; // result = result + numbers[i] ==> ya3nii ba2olo ya5od el numbers step by step w ydefha 3ala el result 
+  }
+  return `Final Result Is ${result}`;
+}
+console.log(calc(10, 20, 10, 30, 50, 30));
+
+/*
+  Function Advanced Practice
+  - Parameters
+  - Default
+  - Rest
+  - Loop
+  - Condition
+*/
+
+function showInfo(username = "Unknown", age = "Unknown", rate = 0, show = "Yes", ...skills){
+  document.write(`<div>`);
+  document.write(`<h2>Welcome, ${username}</h2>`);
+  document.write(`<p>Age: ${age}<p>`);
+  document.write(`<p>Hour Rate: ${rate}$<p>`);
+  if(show === "Yes"){
+    if(skills.length > 0){
+      document.write(`<p>Skills: ${skills.join(" | ")}</p>`);
+    }else{
+      document.write(`<p>Skills: No Skills</p>`);
+
+    }
+  } else{
+    document.write(`<p>Skills is Hidden</p>`)
+  }
+  document.write(`</div>`);
+  
+}
+showInfo("Raghad", 29, 20, "Yes", "Html", "Css")
+
+/*
+  Function - Random Argument Challenge
+  ====================================
+  Create Function showDetails
+  Function Accept 3 Parameters [a, b, c]
+  Data Types For Info Is
+  - String => Name
+  - Number => Age
+  - Boolean => Status
+  Argument Is Random
+  Data Is Not Sorted Output Depend On Data Types
+  - Use Ternary Conditional Operator
+*/
+
+
+function showDetails(name , age, hire){
+  document.write(`<div>`);
+  for(i =0; i<showDetails; i++){
+    if(showDetails[i] === "string"){
+      document.write(`<h2>Welcome, ${name}</h2>`)
+    }
+  }
+  
+  document.write(`<p>Age: ${age}</p>`)
+  document.write(`<p>Availabe for Hire: ${hire}</p>`)
+  document.write(`</div>`)
+
+
+}
+// showDetails("Osama", 38, true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+showDetails(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+// showDetails(true, 38, "Osama"); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+// showDetails(false, "Osama", 38); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
+
+/*
+  Function
+  - Anonymous Function
+  - Calling Named Function vs Anonymous Function
+  - Argument To Other Function
+  - Task Without Name
+  - SetTimeout
+*/
+/*
+  Function
+  - Anonymous Function
+  - Calling Named Function vs Anonymous Function
+  - Argument To Other Function
+  - Task Without Name
+  - SetTimeout
+*/
+
+let calculator = function(num1, num2){
+  return num1 + num2;
+}
+console.log(calculator(10, 20));
+
+function sayHello(){
+  console.log("Hello Osama");
+}
+// document.getElementById ("click").onclick= sayHello;
+
+// document.getElementById("click").onclick = function(){
+//   console.log("click")
+// }
+
+/*
+  Function
+  - Function Inside Function
+  - Return Function
+*/
+
+// Example 1
+
+// function sayMsg(fName, lName){
+//   let message = `Hello`;
+//   //Nested Function
+//   function concatMsg(){
+//     message = `${message} ${fName} ${lName}`;
+//   }
+//   concatMsg();
+//   return message;
+// }
+
+// console.log(sayMsg("Osama", "Mohamed"));
+
+
+// Example 2
+
+// function sayMsg(fName, lName){
+//   let message = `Hello`;
+//   //Nested Function
+//   function concatMsg(){
+//     return `${message} ${fName} ${lName}`;
+//   }
+//   return concatMsg();
+// }
+
+// console.log(sayMsg("Osama", "Mohamed"));
+
+
+// Example 3
+
+function sayMsg(fName, lName){
+  let message = `Hello`;
+  //Nested Function
+  function concatMsg(){
+
+    function getFullName(){
+
+      return `${fName} ${lName}`
+    }
+    return `${message} ${getFullName()}`;
+  }
+  return concatMsg();
+}
+
+  console.log(sayMsg("Osama", "Mohamed"));
+
+/*
+  Function
+  - Arrow Function
+  -- Regular vs Arrow [Param + No Param]
+  -- Multiple Lines
+*/
+
+// let print = function(){ //function print()
+
+//   return 10;
+// }
+// let print = () => 10;
+  // w lw 3andii one line of code momken asheel el {} and return w momken lw mafeesh parameters momken asheel el () w a7ot _
+
+  // let print = num => num; //lw 3andi one parameter momken asheel el (), lw aktar yb2a azem ()
+     
+  let print = (num1, num2) => num1 + num2;
+  
+
+  console.log(print(100, 50));
+
+  /*
+  Scope
+  - Global And Local Scope
+*/
+
+var a3 = 1;
+let b2 = 2;
+
+function showText() { // lazm el vairables tkon gwa el fn w msh mt3arfa gwa "local", haibd2 ydawr fi scope awsa3 w ygbha mn bara global'
+  var a3 = 10;
+  let b2 = 20;
+  console.log(`Function - From Local ${a3}`);
+  console.log(`Function - From Local ${b2}`);
+}
+
+console.log(`From Global ${a3}`);
+console.log(`From Global ${b2}`);
+
+showText();

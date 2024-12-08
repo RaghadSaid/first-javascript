@@ -656,7 +656,6 @@ let price3 = 0;
 console.log(`The price3 Is ${price3 || 200}`); // lw el price falsey value haikon el output 200
 console.log(`The price3 Is ${price3 ?? 200}`); // lw el price Null + Undefined(let price;) haikon el output 200 3'eer kda haital3 ai 7aga maktoba
 
-
 /*
   Switch Statement
   switch(expression) {
@@ -697,7 +696,7 @@ switch (day) {
 */
 let job2 = "Manager";
 let salary2 = 0;
-switch (job2){
+switch (job2) {
   case "Manager":
     salary2 = 8000;
     console.log(`My Salary is ${salary2}`);
@@ -710,14 +709,12 @@ switch (job2){
     salary2 = 7000;
     console.log(`My Salary is ${salary2}`);
     break;
-  
+
   default:
     salary2 = 4000;
     console.log(`Salary is ${salary2}`);
     break;
 }
-
-
 
 let job = "Manager";
 let salary = 0;
@@ -733,44 +730,36 @@ if (job === "Manager") {
 }
 console.log(salary);
 
-
 /*
   If Challenge
 */
 let holidays2 = 0;
 let money2 = 0;
 
-if (holidays2 === 0){
+if (holidays2 === 0) {
   money2 = 5000;
   console.log(`My Money is ${money2}`);
-} else if (holidays2 === 1 || holidays2 === 2){
+} else if (holidays2 === 1 || holidays2 === 2) {
   money2 = 3000;
   console.log(`My Money is ${money2}`);
-
-} else if (holidays2 === 3){
+} else if (holidays2 === 3) {
   money = 2000;
   console.log(`My Money is ${money2}`);
-
-} else if (holidays2 === 4){
+} else if (holidays2 === 4) {
   money2 = 1000;
   console.log(`My Money is ${money2}`);
-
-} else if (holidays2 === 5){
+} else if (holidays2 === 5) {
   money2 = 0;
   console.log(`My Money is ${money2}`);
-
 } else {
   money2 = 0;
   console.log(`Money is ${money2}`);
 }
 
-
-
 let holidays = 0;
 let money = 0;
 
 switch (holidays) {
-  
   case 0:
     money = 5000;
     console.log(`My Money is ${money}`);
@@ -943,7 +932,12 @@ let myFriends7 = ["Ahmed", "Sayed", "Ali", "Osama", "Gamal", "Ameer"];
 let myNewFriends = ["Samar", "Sameh"];
 let schoolFriends = ["Haytham", "Shady"];
 
-let allFriends = myFriends7.concat(myNewFriends, schoolFriends, "Gameel", [1, 2]); 
+let allFriends = myFriends7.concat(
+  myNewFriends,
+  schoolFriends,
+  "Gameel",
+  [1, 2]
+);
 console.log(allFriends);
 
 console.log(allFriends.join());
@@ -962,7 +956,6 @@ let counter = 3;
 
 let my = ["Ahmed", "Mazero", "Elham", "Osama", "Gamal", "Ameer"];
 
-
 // Write Code Here
 
 console.log(my);
@@ -970,17 +963,15 @@ console.log(my);
 // my.unshift("Osama");
 console.log(my.slice(zero, counter).reverse());
 
-
 console.log(my);
 console.log(my.slice(0, 4).reverse());
- // ["Osama", "Elham", "Mazero", "Ahmed"];
+// ["Osama", "Elham", "Mazero", "Ahmed"];
 
 console.log(my.slice("????")); // ["Elham", "Mazero"]
 
 console.log(); // "Elzero"
 
 console.log(); // "rO"
-
 
 /*
   Loop
@@ -1020,7 +1011,6 @@ console.log(onlyNames);
 // for (let i = 0; i < myFriends8.length; i++) {
 //   console.log(myFriends8[i]);
 // }
-
 
 /*
   Loop
@@ -1076,7 +1066,8 @@ mainLoop: for (let i = 0; i < products2.length; i++) {
 let products3 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
 let ii = 0;
 
-for (;;) { //badl (let ii = 0; i < products3.length; i++)
+for (;;) {
+  //badl (let ii = 0; i < products3.length; i++)
   console.log(products3[ii]);
   ii++;
   if (ii === products3.length) break; // badl el i < products3.length ya3nii lama y7a22 kol content el array y3ml break
@@ -1098,7 +1089,7 @@ for (let i = 0; i < showCount; i++) {
   for (let j = 0; j < colors3.length; j++) {
     document.write(`<p> - ${colors3[j]}</p>`); // hai5alii el colors ta7t b3d
   }
-  document.write(`<p> - ${colors3.join(" | ")}</p>`);  // hai5alii el colors gamb b3d w benhom |
+  document.write(`<p> - ${colors3.join(" | ")}</p>`); // hai5alii el colors gamb b3d w benhom |
   document.write(`</div>`);
 }
 
@@ -1136,7 +1127,16 @@ console.log(i);
   Loop Challenge
 */
 let myAdmins = ["Ahmed", "Osama", "Sayed", "Stop", "Samera"];
-let myEmployees = ["Amgad", "Samah", "Ameer", "Omar", "Othman", "Amany", "Samia", "Anwar"];
+let myEmployees = [
+  "Amgad",
+  "Samah",
+  "Ameer",
+  "Omar",
+  "Othman",
+  "Amany",
+  "Samia",
+  "Anwar",
+];
 let startWithA = [];
 let startWithO = [];
 let startWithS = [];
@@ -1147,56 +1147,49 @@ document.write(`<div>We Have 3 Admins</div>`);
 //   document.write(`<div>`);
 //   document.write(`<h3>The Admin for Team ${k+1} is ${myAdmins[k]} </h3>`)
 //   document.write(`<h2>Team Members</h3>`)
- 
+
 //   document.write(`</div>`);
 
 // }
-for (let l = 0; l < myEmployees.length; l++){
-    
-  if(myEmployees[l].startsWith("A")){
+for (let l = 0; l < myEmployees.length; l++) {
+  if (myEmployees[l].startsWith("A")) {
     startWithA.push(myEmployees[l]);
 
     // document.write(`<h4>- ${l+1} ${myEmployees[l]}</h4>`);
-
-  }
-  else if(myEmployees[l].startsWith("O")){
+  } else if (myEmployees[l].startsWith("O")) {
     startWithO.push(myEmployees[l]);
 
     // document.write(`<h4>- ${l+1} ${myEmployees[l]}</h4>`);
-  }
-  else if(myEmployees[l].startsWith("S")){
+  } else if (myEmployees[l].startsWith("S")) {
     startWithS.push(myEmployees[l]);
 
     // document.write(`<h4>- ${l+1} ${startWithS[l]}</h4>`);
   }
 }
 
-
-document.write(`<h3>The Admin for Team ${1} is ${myAdmins[0]} </h3>`)
-document.write(`<h2>Team Members</h3>`)
-
-document.write(`</div>`);
-for (let l = 0; l < startWithA.length; l++){
-  document.write(`<h4>- ${l+1} ${startWithA[l]}</h4>`);
-}
-
-document.write(`<h3>The Admin for Team ${1} is ${myAdmins[1]} </h3>`)
-document.write(`<h2>Team Members</h3>`)
+document.write(`<h3>The Admin for Team ${1} is ${myAdmins[0]} </h3>`);
+document.write(`<h2>Team Members</h3>`);
 
 document.write(`</div>`);
-for (let l = 0; l < startWithO.length; l++){
-  document.write(`<h4>- ${l+1} ${startWithO[l]}</h4>`);
+for (let l = 0; l < startWithA.length; l++) {
+  document.write(`<h4>- ${l + 1} ${startWithA[l]}</h4>`);
 }
 
-document.write(`<h3>The Admin for Team ${1} is ${myAdmins[2]} </h3>`)
-document.write(`<h2>Team Members</h3>`)
+document.write(`<h3>The Admin for Team ${1} is ${myAdmins[1]} </h3>`);
+document.write(`<h2>Team Members</h3>`);
 
 document.write(`</div>`);
-for (let l = 0; l < startWithS.length; l++){
-  document.write(`<h4>- ${l+1} ${startWithS[l]}</h4>`);
+for (let l = 0; l < startWithO.length; l++) {
+  document.write(`<h4>- ${l + 1} ${startWithO[l]}</h4>`);
 }
 
+document.write(`<h3>The Admin for Team ${1} is ${myAdmins[2]} </h3>`);
+document.write(`<h2>Team Members</h3>`);
 
+document.write(`</div>`);
+for (let l = 0; l < startWithS.length; l++) {
+  document.write(`<h4>- ${l + 1} ${startWithS[l]}</h4>`);
+}
 
 /*
   Function
@@ -1232,10 +1225,10 @@ sayHello("Osama", 38);
 sayHello("Sayed", 40);
 sayHello("Ali", 18);
 
-
-function generatYears(start, end, exclude){ // exclude ==> 3lshan a7dd beha el item elli msh 3aizah yzhar
-  for(let i=start; i<=end; i++){
-    if(i === exclude){
+function generatYears(start, end, exclude) {
+  // exclude ==> 3lshan a7dd beha el item elli msh 3aizah yzhar
+  for (let i = start; i <= end; i++) {
+    if (i === exclude) {
       continue;
     }
     console.log(i);
@@ -1269,7 +1262,8 @@ generate(10, 20);
   - ES6 Method
 */
 
-function sayHello(username = "Unknown", age = "Unknown") { // control parametes value lw mafeesh value haiktb Unknown
+function sayHello(username = "Unknown", age = "Unknown") {
+  // control parametes value lw mafeesh value haiktb Unknown
   // if (age === undefined) {
   //   age = "Unknown";
   // }
@@ -1286,11 +1280,12 @@ console.log(sayHello());
   - Must Be Last Element
 */
 
-function calc(...numbers) { // caclculate numbers
+function calc(...numbers) {
+  // caclculate numbers
   // console.log(Array.isArray(numbers));
   let result = 0;
   for (let i = 0; i < numbers.length; i++) {
-    result += numbers[i]; // result = result + numbers[i] ==> ya3nii ba2olo ya5od el numbers step by step w ydefha 3ala el result 
+    result += numbers[i]; // result = result + numbers[i] ==> ya3nii ba2olo ya5od el numbers step by step w ydefha 3ala el result
   }
   return `Final Result Is ${result}`;
 }
@@ -1305,25 +1300,29 @@ console.log(calc(10, 20, 10, 30, 50, 30));
   - Condition
 */
 
-function showInfo(username = "Unknown", age = "Unknown", rate = 0, show = "Yes", ...skills){
+function showInfo(
+  username = "Unknown",
+  age = "Unknown",
+  rate = 0,
+  show = "Yes",
+  ...skills
+) {
   document.write(`<div>`);
   document.write(`<h2>Welcome, ${username}</h2>`);
   document.write(`<p>Age: ${age}<p>`);
   document.write(`<p>Hour Rate: ${rate}$<p>`);
-  if(show === "Yes"){
-    if(skills.length > 0){
+  if (show === "Yes") {
+    if (skills.length > 0) {
       document.write(`<p>Skills: ${skills.join(" | ")}</p>`);
-    }else{
+    } else {
       document.write(`<p>Skills: No Skills</p>`);
-
     }
-  } else{
-    document.write(`<p>Skills is Hidden</p>`)
+  } else {
+    document.write(`<p>Skills is Hidden</p>`);
   }
   document.write(`</div>`);
-  
 }
-showInfo("Raghad", 29, 20, "Yes", "Html", "Css")
+showInfo("Raghad", 29, 20, "Yes", "Html", "Css");
 
 /*
   Function - Random Argument Challenge
@@ -1339,20 +1338,17 @@ showInfo("Raghad", 29, 20, "Yes", "Html", "Css")
   - Use Ternary Conditional Operator
 */
 
-
-function showDetails(name , age, hire){
+function showDetails(name, age, hire) {
   document.write(`<div>`);
-  for(i =0; i<showDetails; i++){
-    if(showDetails[i] === "string"){
-      document.write(`<h2>Welcome, ${name}</h2>`)
+  for (i = 0; i < showDetails; i++) {
+    if (showDetails[i] === "string") {
+      document.write(`<h2>Welcome, ${name}</h2>`);
     }
   }
-  
-  document.write(`<p>Age: ${age}</p>`)
-  document.write(`<p>Availabe for Hire: ${hire}</p>`)
-  document.write(`</div>`)
 
-
+  document.write(`<p>Age: ${age}</p>`);
+  document.write(`<p>Availabe for Hire: ${hire}</p>`);
+  document.write(`</div>`);
 }
 // showDetails("Osama", 38, true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
 showDetails(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
@@ -1376,12 +1372,12 @@ showDetails(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Availab
   - SetTimeout
 */
 
-let calculator = function(num1, num2){
+let calculator = function (num1, num2) {
   return num1 + num2;
-}
+};
 console.log(calculator(10, 20));
 
-function sayHello(){
+function sayHello() {
   console.log("Hello Osama");
 }
 // document.getElementById ("click").onclick= sayHello;
@@ -1410,7 +1406,6 @@ function sayHello(){
 
 // console.log(sayMsg("Osama", "Mohamed"));
 
-
 // Example 2
 
 // function sayMsg(fName, lName){
@@ -1424,24 +1419,21 @@ function sayHello(){
 
 // console.log(sayMsg("Osama", "Mohamed"));
 
-
 // Example 3
 
-function sayMsg(fName, lName){
+function sayMsg(fName, lName) {
   let message = `Hello`;
   //Nested Function
-  function concatMsg(){
-
-    function getFullName(){
-
-      return `${fName} ${lName}`
+  function concatMsg() {
+    function getFullName() {
+      return `${fName} ${lName}`;
     }
     return `${message} ${getFullName()}`;
   }
   return concatMsg();
 }
 
-  console.log(sayMsg("Osama", "Mohamed"));
+console.log(sayMsg("Osama", "Mohamed"));
 
 /*
   Function
@@ -1455,16 +1447,15 @@ function sayMsg(fName, lName){
 //   return 10;
 // }
 // let print = () => 10;
-  // w lw 3andii one line of code momken asheel el {} and return w momken lw mafeesh parameters momken asheel el () w a7ot _
+// w lw 3andii one line of code momken asheel el {} and return w momken lw mafeesh parameters momken asheel el () w a7ot _
 
-  // let print = num => num; //lw 3andi one parameter momken asheel el (), lw aktar yb2a azem ()
-     
-  let print = (num1, num2) => num1 + num2;
-  
+// let print = num => num; //lw 3andi one parameter momken asheel el (), lw aktar yb2a azem ()
 
-  console.log(print(100, 50));
+let print = (num1, num2) => num1 + num2;
 
-  /*
+console.log(print(100, 50));
+
+/*
   Scope
   - Global And Local Scope
 */
@@ -1472,7 +1463,8 @@ function sayMsg(fName, lName){
 var a3 = 1;
 let b2 = 2;
 
-function showText() { // lazm el vairables tkon gwa el fn w msh mt3arfa gwa "local", haibd2 ydawr fi scope awsa3 w ygbha mn bara global'
+function showText() {
+  // lazm el vairables tkon gwa el fn w msh mt3arfa gwa "local", haibd2 ydawr fi scope awsa3 w ygbha mn bara global'
   var a3 = 10;
   let b2 = 20;
   console.log(`Function - From Local ${a3}`);
@@ -1483,3 +1475,369 @@ console.log(`From Global ${a3}`);
 console.log(`From Global ${b2}`);
 
 showText();
+
+/*
+  Scope
+  - Lexical Scope
+
+  Search
+  - Execution Context
+  - Lexical Environment
+*/
+
+function parent() {
+  let a = 10;
+
+  function child() {
+    console.log(a);
+    console.log(`From Child ${b}`);
+
+    function grand() {
+      let b = 100;
+      console.log(`From Grand ${a}`);
+      console.log(`From Grand ${b}`);
+    }
+    grand();
+  }
+  child();
+}
+parent();
+
+/*
+  Function Arrow Challenges
+*/
+
+// [1] One Statement In Function
+// [2] Convert To Arrow Function
+// [3] Print The Output [Arguments May Change]
+
+let names = function () {
+  // Parameter ?
+  return "???";
+};
+
+// console.log(names("Osama", "Mohamed", "Ali", "Ibrahim"));
+// // String [Osama], [Mohamed], [Ali], [Ibrahim] => Done !
+
+// /* ================================= */
+
+// // [1] Replace ??? In Return Statement To Get The Output
+// // [2] Create The Same Function With Regular Syntax
+// // [3] Use Array Inside The Arguments To Get The Output
+
+// let myNumbers = [20, 50, 10, 60];
+
+// let calc = (one, two, ...nums) => "???";
+
+// console.log(calc(10, "???", "???")); // 80
+
+/*
+  Higher Order Functions
+  ---> is a function that accepts functions as parameters and/or returns a function.
+
+  - Map
+  --- method creates a new array
+  --- populated with the results of calling a provided function on every element
+  --- in the calling array.
+
+  Syntax map(callBackFunction(Element, Index, Array) { }, thisArg)
+  - Element => The current element being processed in the array.
+  - Index => The index of the current element being processed in the array.
+  - Array => The Current Array
+
+  Notes
+  - Map Return A New Array
+
+  Examples
+  - Anonymous Function
+  - Named Function
+
+*/
+
+let myNums = [1, 2, 3, 4, 5, 6];
+
+let newArray = [];
+
+for (let i = 0; i < myNums.length; i++) {
+  newArray.push(myNums[i] + myNums[i]);
+}
+
+console.log(newArray);
+
+// Same Idea With Map
+
+// let addSelf = myNums.map(function (element, index, arr) {
+//   // console.log(`Current Element => ${element}`);
+//   // console.log(`Current Index => ${index}`);
+//   // console.log(`Array => ${arr}`);
+//   // console.log(`This => ${this}`);
+//   return element + element;
+// }, 10);
+
+// let addSelf = myNums.map((a) => a + a);
+
+// console.log(addSelf);
+
+function addition(ele) {
+  return ele + ele;
+}
+
+let add = myNums.map(addition);
+
+console.log(add);
+
+/*
+  Map
+  - Swap Cases
+  - Inverted Numbers
+  - Ignore Boolean Value
+*/
+
+let swappingCases = "elZERo";
+let invertedNumbers = [1, -10, -20, 15, 100, -30];
+let ignoreNumbers = "Elz123er4o";
+
+// let sw = swappingCases
+//   .split("")
+//   .map(function (ele) {
+//     // Condition ? True : False
+//     return ele === ele.toUpperCase() ? ele.toLowerCase() : ele.toUpperCase();
+//   })
+//   .join("");
+
+// Arrow Function Version
+
+let sw = swappingCases
+  .split("")
+  .map((a) => (a === a.toUpperCase() ? a.toLowerCase() : a.toUpperCase())) // dh 3lshan a5alii kol capital letter ykon small w kol small ykon capital
+  .join("");
+
+console.log(sw);
+
+let inv = invertedNumbers.map(function (ele) {
+  // dh 3lshan a5alii kol nigative ekon positive w el3aks
+  return -ele;
+});
+
+console.log(inv);
+
+//dh 3lshan asheel el numbers mn been el 7roof
+let ign = ignoreNumbers
+  .split("")
+  .map(function (ele) {
+    return isNaN(parseInt(ele)) ? ele : "";
+  })
+  .join("");
+
+console.log(ign);
+
+/*
+  - Filter
+  --- method creates a new array
+  --- with all elements that pass the test implemented by the provided function.
+
+  Syntax filter(callBackFunction(Element, Index, Array) { }, thisArg)
+  - Element => The current element being processed in the array.
+  - Index => The index of the current element being processed in the array.
+  - Array => The Current Array
+*/
+
+// Get Friends With Name Starts With A
+let friends = ["Ahmed", "Sameh", "Sayed", "Asmaa", "Amgad", "Israa"];
+
+let filterdFriends = friends.filter(function (el) {
+  return el.startsWith("A") ? true : false;
+});
+
+console.log(filterdFriends);
+
+// Get Even Numbers Only
+let numbers = [11, 20, 2, 5, 17, 10];
+
+let evenNumbers = numbers.filter(function (el) {
+  return el % 2 === 0;
+});
+
+console.log(evenNumbers);
+
+// Test Map vs Filter
+
+// let addMap = numbers.map(function (el) {
+//   return el + el;
+// });
+
+// console.log(addMap);
+
+// let addFilter = numbers.filter(function (el) {
+//   return el + el;
+// });
+
+// console.log(addFilter);
+
+/*
+  Filter
+  - Filter Longest Word By Number
+*/
+
+// Filter Words More Than 4 Characters
+let sentence = "I Love Foood Code Too Playing Much";
+
+let smallWords = sentence
+  .split(" ")
+  .filter(function (ele) {
+    return ele.length <= 4;
+  })
+  .join(" ");
+
+console.log(smallWords);
+
+// Ignore Numbers
+let ignoreNumberss = "Elz123er4o";
+
+let igns = ignoreNumberss
+  .split("")
+  .filter(function (ele) {
+    return isNaN(parseInt(ele));
+  })
+  .join("");
+
+console.log(igns);
+
+// Filter Strings + Multiply
+let mix = "A13BS2ZX";
+
+let mixedContent = mix
+  .split("")
+  .filter(function (ele) {
+    return !isNaN(parseInt(ele));
+  })
+  .map(function (ele) {
+    return ele * ele;
+  })
+  .join("");
+
+console.log(mixedContent);
+
+/*
+  - Reduce
+  --- method executes a reducer function on each element of the array,
+  --- resulting in a single output value.
+
+  Syntax
+  reduce(callBackFunc(Accumulator, Current Val, Current Index, Source Array) { }, initialValue)
+  - Accumulator => the accumulated value previously returned in the last invocation ==> awl value "10"
+  - Current Val => The current element being processed in the array ==> el current value 2abl ama n7ot 3aleha el accu value elli hia "20"
+  - Index => The index of the current element being processed in the array. ==> index of current value "1"
+  ---------- Starts from index 0 if an initialValue is provided.
+  ---------- Otherwise, it starts from index 1.
+  - Array => The Current Array
+*/
+
+let nums = [10, 20, 15, 30];
+
+let addd = nums.reduce(function (acc, current, index, arr) {
+  console.log(`Acc => ${acc}`);
+  console.log(`Current Element => ${current}`);
+  console.log(`Current Element Index => ${index}`);
+  console.log(`Array => ${arr}`);
+  console.log(acc + current);
+  console.log(`#############`);
+  return acc + current;
+}, 5);
+
+console.log(addd);
+
+/*
+  Reduce
+  - Longest Word
+  - Remove Characters + Use Reduce
+*/
+
+let theBiggest = [
+  "Bla",
+  "Propaganda",
+  "Other",
+  "AAA",
+  "Battery",
+  "Test",
+  "Propaganda_Two",
+];
+
+let check = theBiggest.reduce(function (acc, current) {
+  console.log(`Acc => ${acc}`);
+  console.log(`Current Element => ${current}`);
+  console.log(acc.length > current.length ? acc : current);
+  console.log(`#############`);
+  return acc.length > current.length ? acc : current;
+});
+
+console.log(check);
+
+let removeChars = ["E", "@", "@", "L", "Z", "@", "@", "E", "R", "@", "O"];
+
+let finalString = removeChars
+  .filter(function (ele) {
+    return ele !== "@";
+  })
+  .reduce(function (acc, current) {
+    return `${acc}${current}`;
+  });
+
+console.log(finalString);
+
+/*
+  - forEach
+  --- method executes a provided function once for each array element.
+
+  Syntax forEach(callBackFunction(Element, Index, Array) { }, thisArg)
+  - Element => The current element being processed in the array.
+  - Index => The index of the current element being processed in the array.
+  - Array - The Current Array
+
+  Note
+  - Doesnt Return Anything [Undefined]
+  - Break Will Not Break The Loop
+*/
+
+let allLis = document.querySelectorAll("ul li");
+let allDivs = document.querySelectorAll(".content div");
+
+allLis.forEach(function (ele) {
+  ele.onclick = function () {
+    // Remove Active Class From All Elements
+    allLis.forEach(function (ele) {
+      ele.classList.remove("active");
+    });
+    // Add Active Class To This Element
+    this.classList.add("active");
+    // Hide All Divs
+    allDivs.forEach(function (ele) {
+      ele.style.display = "none";
+    });
+  };
+});
+
+/*
+  Higher Order Functions Challenges
+
+  You Can Use
+  - ,
+  - _
+  - Space
+  - True => 1 => One Time Only In The Code
+
+  You Cannot Use
+  - Numbers
+  - Letters
+
+  - You Must Use [Filter + Map + Reduce + Your Knowledge]
+  - Order Is Not Important
+  - All In One Chain
+
+*/
+
+let myString = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
+
+let solution = "?????";
+
+console.log(solution); // Elzero Web School

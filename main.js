@@ -1380,9 +1380,9 @@ console.log(calculator(10, 20));
 function sayHello() {
   console.log("Hello Osama");
 }
-// document.getElementById ("click").onclick= sayHello;
+// document.getElementById ("cl").onclick= sayHello;
 
-// document.getElementById("click").onclick = function(){
+// document.getElementById("cl").onclick = function(){
 //   console.log("click")
 // }
 
@@ -1511,25 +1511,26 @@ parent();
 // [2] Convert To Arrow Function
 // [3] Print The Output [Arguments May Change]
 
-let names = function () {
-  // Parameter ?
-  return "???";
-};
+// let names = function () {
+//   return `String [${Array.from(arguments).join("], [")}] => Done !`;
+// };
 
-// console.log(names("Osama", "Mohamed", "Ali", "Ibrahim"));
+let names = (...arguments) => `String [${arguments.join("], [")}] => Done!`;
+
+console.log(names("Osama", "Mohamed", "Ali", "Ibrahim"));
 // // String [Osama], [Mohamed], [Ali], [Ibrahim] => Done !
 
 // /* ================================= */
 
-// // [1] Replace ??? In Return Statement To Get The Output
-// // [2] Create The Same Function With Regular Syntax
-// // [3] Use Array Inside The Arguments To Get The Output
+// [1] Replace ??? In Return Statement To Get The Output
+// [2] Create The Same Function With Regular Syntax
+// [3] Use Array Inside The Arguments To Get The Output
 
 // let myNumbers = [20, 50, 10, 60];
 
-// let calc = (one, two, ...nums) => "???";
+// let calc1 = (one, two, ...nums) => one + nums[0];
 
-// console.log(calc(10, "???", "???")); // 80
+// console.log(calc1(10, "", ...myNumbers)); // 80
 
 /*
   Higher Order Functions
@@ -1838,6 +1839,225 @@ allLis.forEach(function (ele) {
 
 let myString = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
 
-let solution = "?????";
+let solution = myString.split(",").filter((el) => isNaN(el) && el !== "_").map((el, index) => index === 0 ? el.toUpperCase() : el).reduce((acc, curr) => acc + curr) ;
 
 console.log(solution); // Elzero Web School
+
+/*
+  Object
+  - Intro and What Is Object
+  - Testing Window Object
+  - Accessing Object
+*/
+
+let userr = {
+  // Properties
+  theName: "Osama",
+  theAge: 38,
+
+  // Methods
+  sayHello: function (){
+    return `Hello`;
+  }
+}
+console.log(userr.theName);
+console.log(userr.theAge);
+console.log(userr.sayHello());
+
+/*
+  Object
+  - Dig Deeper
+  - Dot Notation vs Bracket Notation
+  - Dynamic Property Name
+*/
+
+let myVar = "country";
+
+let useer = {
+  theName: "Osama",
+  country: "Egypt",
+};
+
+console.log(useer.theName);
+console.log(useer.country); // useer.country
+console.log(useer.myVar); // useer.country
+console.log(useer[myVar]); // useer.country
+
+/*
+  Object
+  - Nested Object And Trainings
+*/
+ let usser = {
+  name: "Raghad",
+  age: 29,
+  skills: ["HTML", "CSS", "JS"],
+  available: false,
+  addresses: {
+    ksa: "Riyadh",
+    egypt: {
+      one: "Cairo",
+      two: "Giza",
+    },
+  },
+  checkAv: function(){
+    if(usser.available === true){
+      return `Available for Work`;
+    } else{
+      return `Not Available`;
+    }
+  }
+ }
+ console.log(usser.name);
+ console.log(usser.age);
+ console.log(usser.skills);
+ console.log(usser.skills[2]); //Access with index
+ console.log(usser.addresses.ksa);
+ console.log(usser.addresses.egypt.one);
+ console.log(usser["addresses"]["egypt"]);
+ console.log(usser["addresses"]["egypt"]["two"]);
+ console.log(usser.checkAv());
+
+/*
+  Object
+  - Create With New Keyword new Object();
+*/
+ let uuser = {
+  age: 20,
+ };
+
+ //or let uuser = new Object({ age: 20, });
+
+
+ console.log(uuser);
+ 
+ uuser.age = 29;
+ uuser["country"] = "Egypt";
+
+ uuser.sayHello = function(){
+  return `Hello`
+ }
+
+
+ console.log(uuser);
+ console.log(uuser.age);
+ console.log(uuser.country);
+ console.log(uuser.sayHello());
+
+ /*
+  Function this Keyword
+  - this Introduction
+  - this Inside Object Method
+  --- When a function is called as a method of an object,
+  --- its this is set to the object the method is called on.
+  - Global Object
+  - Test Variables With Window And This
+  - Global Context
+  - Function Context
+
+  Search
+  - Strict Mode
+*/
+
+function sayHello(){
+  console.log(this);
+  return this;
+}
+sayHello();
+
+console.log(sayHello() === window);
+
+document.getElementById("cl").onclick = function(){
+  console.log(this);
+}
+let user1 = {
+  age: 38,
+  ageInDays: function () {
+    console.log(this);
+    return this.age * 365;
+  },
+};
+
+console.log(user1.age);
+console.log(user1.ageInDays());
+
+/*
+  Object
+  - Create Object With Create Method
+*/
+
+let user2 = {
+  age: 20,
+  doubleAge: function () {
+    return this.age * 2;
+  },
+};
+
+console.log(user2);
+console.log(user2.age);
+console.log(user2.doubleAge());
+
+let obj = Object.create({});
+
+obj.a = 100;
+
+console.log(obj);
+
+let copyObj = Object.create(user2);
+
+copyObj.age = 50;
+
+console.log(copyObj);
+console.log(copyObj.age);
+console.log(copyObj.doubleAge());
+
+let person = {
+  name: "Ali",
+  greet: function () {
+    console.log("Hello, " + this.name);
+  }
+};
+
+let student1 = Object.assign({}, person); 
+student1.name = "Ahmed";
+
+console.log(student1.name);  
+console.log(person.name);  
+student1.greet();
+
+/*
+  Object
+  - Create Object With Assign Method
+*/
+
+let obj1 = {
+  prop1: 1,
+  meth1: function () {
+    return this.prop1;
+  },
+};
+
+let obj2 = {
+  prop2: 2,
+  meth2: function () {
+    return this.prop2;
+  },
+};
+
+let targetObject = {
+  prop1: 100,
+  prop3: 3,
+};
+
+let finalObject = Object.assign(targetObject, obj1, obj2);
+
+finalObject.prop1 = 200;
+finalObject.prop4 = 4;
+
+console.log(finalObject);
+
+let newObject = Object.assign({}, obj1, { prop5: 5, prop6: 6 });
+
+console.log(newObject);
+
+
+

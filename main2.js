@@ -749,3 +749,493 @@ document.querySelector(".name").onblur = function () {
   window.localStorage.setItem("input-name", this.value); // ama a input value fil form e3mel add ll value fil localStorage
 };
 
+/*
+  Destructuring
+  " is a JavaScript expression that allows us to extract data from arrays,
+    objects, and maps and set them into new, distinct variables. "
+  - Destructuring Array
+*/
+
+// let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
+// let [a, b, c, d] = myFriends; // hai7ot kol name fil 7arf elmokabl (a=Ahmed, b=Sayed, ...)
+
+
+let a = 1;
+let b = 2;
+let c = 3;
+let d = 4;
+
+let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
+
+[a = "A", b, c, d, e = "Osama"] = myFriends;
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+console.log(e);
+
+// console.log(myFriends[4]);
+
+let [, y, , z] = myFriends;
+
+console.log(y);
+console.log(z);
+
+/*
+  Destructuring
+  - Destructuring Array Advanced Examples
+*/
+
+let myFriends2 = ["Ahmed", "Sayed", "Ali", ["Shady", "Amr", ["Mohamed", "Gamal"]]];
+
+// console.log(myFriends2[3][2][1]); // 3lshan awsal l Gamal with index
+
+let [, , , [a2, ,[, b2]]] = myFriends2;
+
+console.log(a2); // Shady
+console.log(b2); //Gamal
+
+
+// let [, , , [a2, , [, b2]]] = myFriends2;
+
+
+// console.log(a2); // Shady
+// console.log(b2); // Gamal
+
+/*
+  Destructuring
+  - Destructuring Array => Swapping Variables
+*/
+
+let book = "Video";
+let video = "Book";
+
+// Save Book Value In Stash // old method
+// let stash = book; // Video
+
+// Change Book Value
+// book = video; // Book
+
+// Change Video Value
+// video = stash; // Video
+
+[book, video] = [video, book];
+
+console.log(book);
+console.log(video);
+
+/*
+  Destructuring
+  - Destructuring Object
+*/
+
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  theTitle: "Developer",
+  theCountry: "Egypt",
+};
+
+// console.log(user.theName);
+// console.log(user.theAge);
+// console.log(user.theTitle);
+// console.log(user.theCountry);
+
+// let theName = user.theName;
+// let theAge = user.theAge;
+// let theTitle = user.theTitle;
+// let theCountry = user.theCountry;
+
+// console.log(theName);
+// console.log(theAge);
+// console.log(theTitle);
+// console.log(theCountry);
+
+// ({ theName, theAge, theTitle, theCountry } = user);
+const { theName, theAge, theCountry } = user;
+
+console.log(theName);
+console.log(theAge);
+console.log(theCountry);
+
+
+/*
+  Destructuring
+  - Destructuring Object
+  --- Naming The Variables
+  --- Add New Property
+  --- Nested Object
+  --- Destructuring The Nested Object Only
+*/
+
+const user2 = {
+  theName2: "Osama",
+  theAge2: 39,
+  theTitle: "Developer",
+  theCountry: "Egypt",
+  theColor: "Black",
+  skills: {
+    html: 70,
+    css: 80,
+  },
+};
+
+const {
+  theName2: n, theAge2: a3, theCountry2, theColor: co = "Red", skills: { html: h, css }, } = user2;
+  // theName2:n ==> ya3nii ba2olo en theName2 mkan var n
+
+console.log(n);
+console.log(a3);
+console.log(theCountry2);
+console.log(co);
+console.log(`My HTML Skill Progress Is ${h}`);
+console.log(`My CSS Skill Progress Is ${css}`);
+
+const { html: skillOne, css: skillTwo } = user2.skills;
+
+console.log(`My HTML Skill Progress Is ${skillOne}`);
+console.log(`My CSS Skill Progress Is ${skillTwo}`);
+
+/*
+  Destructuring
+  - Destructuring Function Parameters
+*/
+
+const user3 = {
+  theName3: "Osama",
+  theAge3: 39,
+  skills3: {
+    html: 70,
+    css: 80,
+  },
+};
+
+showDetails(user3);
+
+// function showDetails(obj) {
+//   console.log(`Your Name Is ${obj.theName3}`);
+//   console.log(`Your Age Is ${obj.theAge3}`);
+//   console.log(`Your CSS Skill Progress Is ${obj.skills3.css}`);
+// }
+
+function showDetails({ theName3: n, theAge3: a, skills3: { css: c } } = user3) {
+  console.log(`Your Name Is ${n}`);
+  console.log(`Your Age Is ${a}`);
+  console.log(`Your CSS Skill Progress Is ${c}`);
+}
+
+/*
+  Destructuring
+  - Destructuring Mixed Content
+*/
+const user4 = {
+  theName4: "Raghad", theAge4: 29, skills4: ["HTML", "CSS", "JS"], addresses: {
+    egypt: "Cairo", ksa: "Riyadh",
+  },
+};
+
+const {theName4: n2, theAge4: a4, skills4: [, two, three], addresses: {egypt: e4}} = user4;
+
+console.log(`Your name is: ${n2}`);
+console.log(`Your Age is: ${a4}`);
+console.log(`Your Skills is: ${two}, ${three}`);
+console.log(`Your Live in: ${e4}`)
+
+/*
+  Destructuring
+  - Challenge
+*/
+
+let chosen = 3;
+
+let myFriends3 = [
+  { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
+  { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
+  { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
+];
+
+let {
+ title: o, age: g, available: av, skills:[first2, second2]
+} = myFriends3[chosen-1]; 
+
+console.log(`Your Title is: ${o}`);
+console.log(`Your Age is: ${g}`);
+
+if(av===true){
+  console.log(`Available`);
+} else{
+  console.log(`Not Available`);
+}
+console.log(`Your Skills: ${first2}, ${second2}`);
+
+/*
+  - Set Data Type ==> btsheel el elements el mokarra
+  Syntax: new Set(Iterable)
+  -- Object To Store Unique Values
+  -- Cannot Access Elements By Index
+
+  Properties:
+  - size
+
+  Methods:
+  - add
+  - delete
+  - clear
+  - has
+*/
+
+let myData = [1, 1, 1, 2, 3, "A"];
+// let myUniqueData = new Set([1, 1, 1, 2, 3]);
+// let myUniqueData = new Set(myData);
+// let myUniqueData = new Set().add(1).add(1).add(1).add(2).add(3);
+let myUniqueData = new Set();
+
+myUniqueData.add(1).add(1).add(1);
+myUniqueData.add(2).add(3).add("A");
+
+console.log(`Is Set Has => A ${myUniqueData.has("a".toUpperCase())}`);
+
+console.log(myData);
+console.log(myUniqueData);
+
+console.log(myUniqueData.size);
+
+console.log(myData[0]);
+console.log(myUniqueData[0]);
+
+// myUniqueData.delete(2);
+console.log(myUniqueData.delete(2));
+
+console.log(myUniqueData);
+console.log(myUniqueData.size);
+
+myUniqueData.clear();
+
+console.log(myUniqueData);
+console.log(myUniqueData.size);
+
+/*
+  - Set vs WeakSet
+  "
+    The WeakSet is weak,
+    meaning references to objects in a WeakSet are held weakly.
+    If no other references to an object stored in the WeakSet exist,
+    those objects can be garbage collected.
+
+    ==> el oBj elli malosh select bet3mlo clean
+  "
+  --
+  Set     => Can Store Any Data Values
+  WeakSet => Collection Of Objects Only
+  --
+  Set     => Have Size Property
+  WeakSet => Does Not Have Size Property
+  --
+  Set     => Have Keys, Values, Entries
+  WeakSet => Does Not Have clear, Keys, Values And Entries
+  --
+  Set     => Can Use forEach
+  WeakSet => Cannot Use forEach
+
+  Usage: Store objects and removes them once they become inaccessible
+*/
+
+// Type Of Data
+
+let mySet = new Set([1, 1, 1, 2, 3, "A", "A"]);
+
+console.log(mySet);
+
+// Size
+console.log(`Size Of Elements Inside Set Is: ${mySet.size}`);
+
+// Values + Keys [Alias For Values]
+let iterator = mySet.keys();
+
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next());
+
+// forEach
+
+mySet.forEach((el) => console.log(el));
+
+console.log("#".repeat(20));
+
+// Type Of Data
+
+let myws = new WeakSet([{ A: 1, B: 2 }]);
+
+console.log(myws);
+
+/*
+  - Map Data Type
+  Syntax: new Map(Iterable With Key/Value)
+  -- Map vs Object
+  --
+  ------ Map => Does Not Contain Key By Default
+  ------ Object => Has Default Keys
+  --
+  ------ Map => Key Can Be Anything [Function, Object, Any Primitive Data Types]
+  ------ Object => String Or Symbol
+  --
+  ------ Map => Ordered By Insertion
+  ------ Object => Not 100% Till Now
+  --
+  ------ Map => Get Items By Size
+  ------ Object => Need To Do Manually
+  --
+  ------ Map => Can Be Directly Iterated
+  ------ Object => Not Directly And Need To Use Object.keys() And So On
+  --
+  ------ Map => Better Performance When Add Or Remove Data
+  ------ Object => Low Performance When Comparing To Map
+*/
+
+let myObject = {};
+let myEmptyObject = Object.create(null);
+let myMap = new Map();
+
+console.log(myObject);
+console.log(myEmptyObject);
+console.log(myMap);
+
+let myNewObject = {
+  10: "Number",
+  "10": "String",
+};
+
+console.log(myNewObject[10]);
+
+let myNewMap = new Map();
+myNewMap.set(10, "Number");
+myNewMap.set("10", "String");
+myNewMap.set(true, "Boolean");
+myNewMap.set({a: 1, b: 2}, "Object");
+myNewMap.set(function doSomething() {}, "Function");
+
+console.log(myNewMap.get(10));
+console.log(myNewMap.get("10"));
+
+console.log("####");
+
+console.log(myNewObject);
+console.log(myNewMap);
+
+/*
+  - Map Data Type
+  Methods
+  --- set ==> (key, value)
+  --- get ==> get value of spacific key
+  --- delete ==> delete spacific key, w lw etms7 hai3ml true w lw mafeesh key bnfs el name hai3ml false
+  --- clear ==> clear all elements of map
+  --- has ==> bat2akd beha lw el key mawgod wala l2 w lw mawgod bekon true w lw msh mawgood bekon false
+
+  Properties
+  --- size
+*/
+
+let myMap2 = new Map([
+  [10, "Number"],
+  ["Name", "String"],
+  [false, "Boolean"],
+]);
+
+// myMap2.set(10, "Number");
+// myMap2.set("Name", "String");
+
+console.log(myMap2);
+
+console.log(myMap2.get(10));
+console.log(myMap2.get("Name"));
+console.log(myMap2.get(false));
+
+console.log("####");
+
+console.log(myMap2.has("Name"));
+
+console.log("####");
+
+console.log(myMap2.size);
+
+console.log(myMap2.delete("Name"));
+
+console.log(myMap2.size);
+
+myMap2.clear();
+
+console.log(myMap2.size);
+
+/*
+  - Map vs WeakMap
+  "
+    WeakMap Allows Garbage Collector To Do Its Task But Not Map.
+  "
+  --
+  Map     => Key Can Be Anything
+  WeakMap => Key Can Be Object Only
+  --
+*/
+
+let mapUser = { theName: "Elzero" };
+
+let myMap3 = new Map();
+
+myMap3.set(mapUser, "Object Value");
+
+mapUser = null; // Override The Reference
+
+console.log(myMap3);
+
+console.log("#".repeat(20));
+
+let wMapUser = { theName: "Elzero" };
+
+let myWeakMap = new WeakMap();
+
+myWeakMap.set(wMapUser, "Object Value");
+
+wMapUser = null; // Override The Reference
+
+console.log(myWeakMap);
+
+/*
+  Array Methods ==> Convert Objects likes Arrays => arguments
+  - Array.from(Iterable, MapFunc, This) ==> itrable:Object betkarr
+  - Array.from(arrayLike, mapFunction, thisArg) 
+    -- arrayLike ==> el object elli 3aiza a7olo l array
+    -- mapFunction(Opt.) ==> convert all elements in Object before add them to newArray
+    -- This(Opt.) ==> value of this that pass to mapFunction
+
+  --- Variable
+  --- String Numbers
+  --- Set
+  --- Using The Map Function ==> for proccessing when converting
+  --- Arrow Function
+  --- Shorten The Method + Use arguments
+*/
+
+console.log(Array.from("Osama"));
+console.log(
+  Array.from("12345", function (n) {
+    return +n + +n;
+  })
+);
+console.log(Array.from("12345", (n) => +n + +n));
+
+let myArray = [1, 1, 1, 2, 3, 4];
+
+let mySet2 = new Set(myArray);
+
+console.log(Array.from(mySet2));
+
+// console.log([...new Set(myArray)]); // Future
+
+function af() { // af ==> array from
+  return Array.from(arguments);
+}
+
+console.log(af("Osama", "Ahmed", "sayed", 1, 2, 3));

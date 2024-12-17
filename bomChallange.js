@@ -2,52 +2,48 @@ let input = document.querySelector(".input");
 let add = document.querySelector(".add");
 let tasks = document.querySelector(".tasks");
 
-// تحميل قائمة المهام من localStorage أو تهيئة قائمة فارغة
-let tasksList = localStorage.getItem("items") ? localStorage.getItem("items").split(",") : [];
 
-// عند تحميل الصفحة، عرض المهام المحفوظة
-tasks.innerHTML = "";
-tasksList.forEach((taskText, index) => {
+let taskList = localStorage.getItem("items") ? localStorage.getItem("items").split(",") : [];
+
+
+taskList.forEach((taskText) => {
+  addTaskToPage(taskText);
+});
+
+
+add.onclick = () => {
+  let taskText = input.value.trim(); // value without spacing
+  if(taskText){
+
+    taskList.push(taskText);
+    localStorage.setItem("items", taskList.join(",")); //update for localStorage
+    addTaskToPage(taskText); 
+    input.value = ""; //empty input
+  }
+}
+
+function addTaskToPage(taskText) {
   let task = document.createElement("div");
   task.classList.add("task");
+  task.innerText = taskText;
 
   let del = document.createElement("span");
   del.classList.add("delete");
   del.innerText = "delete";
+  del.style.marginLeft = "10px";
 
   del.onclick = () => {
-    tasksList.splice(index, 1); // حذف العنصر من القائمة
-    localStorage.setItem("items", tasksList.join(",")); // حفظ القائمة
-    task.remove(); // إزالة العنصر من DOM
+    taskList = taskList.filter((task) => task !== taskText);
+    localStorage.setItem("items", taskList.join(","));
+    task.remove();
   };
 
-  task.append(taskText, del);
-  tasks.append(task);
-});
+  task.appendChild(del);
+  tasks.appendChild(task);
+}
 
-// عند النقر على زر الإضافة
-add.onclick = () => {
-  let taskText = input.value.trim();
-  if (taskText) {
-    tasksList.push(taskText); // إضافة المهمة إلى القائمة
-    localStorage.setItem("items", tasksList.join(",")); // حفظ القائمة
 
-    let task = document.createElement("div");
-    task.classList.add("task");
 
-    let del = document.createElement("span");
-    del.classList.add("delete");
-    del.innerText = "delete";
 
-    del.onclick = () => {
-      let index = tasksList.indexOf(taskText);
-      tasksList.splice(index, 1); // حذف العنصر من القائمة
-      localStorage.setItem("items", tasksList.join(",")); // حفظ القائمة
-      task.remove(); // إزالة العنصر من DOM
-    };
 
-    task.append(taskText, del);
-    tasks.append(task);
-    input.value = ""; // تفريغ حقل الإدخال
-  }
-};
+

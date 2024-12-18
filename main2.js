@@ -421,6 +421,18 @@ document.addEventListener("click", function(e){ //e-element / target-elli ana b 
   }
 })
 
+
+/* DOM Challenge */
+
+let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+myArr.forEach(function(n){
+  document.write(`<div style="color: gray; font-size: 20px; margin: 5px; background-color: white;">Product ${n}</div>`);
+});
+
+
+
+
+
 /*
   BOM [Browser Object Model]
   - Introduction
@@ -1203,6 +1215,7 @@ wMapUser = null; // Override The Reference
 console.log(myWeakMap);
 
 /*
+convert any object to real array
   Array Methods ==> Convert Objects likes Arrays => arguments
   - Array.from(Iterable, MapFunc, This) ==> itrable:Object betkarr
   - Array.from(arrayLike, mapFunction, thisArg) 
@@ -1239,3 +1252,359 @@ function af() { // af ==> array from
 }
 
 console.log(af("Osama", "Ahmed", "sayed", 1, 2, 3));
+
+/*
+be3ml copy l ai element fil array w ban2lo fi mkan tanii fi nafs el array
+  Array Methods
+  - Array.copyWithin(Target, Start => Optional, End => Optional)
+  "Copy Part Of An Array To Another Location in The Same Array"
+  -- Any Negative Value Will Count From The End
+  -- Target
+  ---- Index To Copy Part To
+  ---- If At Or Greater Than Array Length Nothing Will Be Copied
+  -- Start
+  ---- Index To Start Copying From
+  ---- If Ommited = Start From Index 0
+  -- End
+  ---- Index To End Copying From
+  ---- Not Including End
+  ---- If Ommited = Reach The End
+*/
+
+let myArray3 = [10, 20, 30, 40, 50, "A", "B"];
+// myArray3.copyWithin(3); // [10, 20, 30, 10, 20, 30, 40]
+
+// myArray3.copyWithin(4, 6); // [10, 20, 30, 40, B, "A", "B"] msh m7taga a7ot el end l2n index 6 hwa lst element
+// myArray3.copyWithin(-3, -1); // [10, 20, 30, 40, B, "A", "B"]
+// myArray3.copyWithin(1, -2); // [10, "A", "B", 40, 50, "A", "B"]
+// myArray3.copyWithin(1, 5, 6); //[10, "A", 30, 40, 50, "A", "B"]
+myArray3.copyWithin(1, -2, -1); //[10, "A", 30, 40, 50, "A", "B"]
+
+console.log(myArray3);
+
+/*
+search kol element l7d ama yosal ll motabek ll condition w b3deen yb2a true w lw 
+wesl ll condetion b stop 3ando w msh bekaml Test
+  Array Methods
+  - Array.some(CallbackFunc(Element, Index, Array), This Argument)
+  --- CallbackFunc => Function To Run On Every Element On The Given Array
+  ------ Element => The Current Element To Process
+  ------ Index => Index Of Current Element
+  ------ Array => The Current Array Working With
+  --- This Argument => Value To Use As This When Executing CallbackFunc
+  --
+  Using
+  - Check if Element Exists In Array
+  - Check If Number In Range
+*/
+
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let myNumber = 5;
+
+// let check = nums.some(function(e){
+//   console.log("Test"); // 3lshan ashof 3aml test 3ala kam element
+//   return e > 5;
+// });
+
+
+let check = nums.some(function(e){
+  return e > this;
+}, myNumber); // ba7ot myNumber hna badl ama aktb gwa e>5, w ba7ot badlha e>this
+
+// let check = nums.some((e) => e > 5);
+
+// console.log(check);
+
+// function checkValues(arr, val){
+//   return arr.some(function (e){
+//     return e === val;
+//   }
+// )
+// }
+// console.log(checkValues(nums, 20));
+// console.log(checkValues(nums, 5));
+
+let range = {
+  min: 10,
+  max: 20,
+};
+
+let checkNumberRange = nums.some(function(e){
+  return e >= this.min && e <= this.max;
+}, range ); // this
+console.log(checkNumberRange);
+
+/*
+lazm every element ykon motabek ll condition 3lshan y3ml true, 3aks el Array.some
+  Array Methods
+  - Array.every(CallbackFunc(Element, Index, Array), This Argument)
+  --- CallbackFunc => Function To Run On Every Element On The Given Array
+  ------ Element => The Current Element To Process
+  ------ Index => Index Of Current Element
+  ------ Array => The Current Array Working With
+  --- This Argument => Value To Use As This When Executing CallbackFunc
+  --
+*/
+
+const locations = {
+  20: "Place 1",
+  30: "Place 2",
+  10: "Place 3",
+  40: "Place 4",
+};
+
+let mainLocation = 15;
+
+let locationsArray = Object.keys(locations);
+
+console.log(locationsArray);
+let locationArrayNumbers = locationsArray.map((n) => +n);
+console.log(locationArrayNumbers);
+
+let chek = locationArrayNumbers.every(function(e){
+  return e > this;
+}, mainLocation);
+console.log(chek);
+
+
+/*
+  Spread Operator => ...Iterable
+  "Allow Iterable To Expand In Place"
+*/
+
+// Spread With String => Expand String
+
+console.log("Raghad");
+console.log(..."Raghad");
+console.log([..."Raghad"]);
+
+// Concatenate Arrays
+
+let myArray1 = [1, 2, 3];
+let myArray2 = [4, 5, 6];
+
+let allArray = [...myArray1, ...myArray2];
+console.log(allArray);
+
+// Copy Array
+
+let copyArray = [...myArray1];
+console.log(copyArray);
+
+// Push Inside Array
+
+let allFriends =  ["Osama", "Ahmed", "Sayed"];
+let thisYearFriends = ["Sameh", "Mahmoud"];
+
+allFriends.push(...thisYearFriends);
+
+console.log(allFriends);
+
+// Use With Math Object
+
+let myNums = [10, 20, -100, 100, 1000, 500];
+console.log(Math.max(...myNums)); // 3lshan ageeb max number in array
+
+// Spread With Objects => Merge Objects
+
+let objOne = {
+  a: 1,
+  b: 2,
+};
+let objTwo = {
+  c: 3,
+  d: 4,
+};
+
+console.log({...objOne, ...objTwo, e: 5});
+
+
+/*
+  Map And Set + What You Learn => Challenge
+  Requirements
+  - You Cant Use Numbers Or True Or False
+  - Don't Use Array Indexes
+  - You Cant Use Loop
+  - You Cant Use Any Higher Order Function
+  - Only One Line Solution Inside Console
+  - If You Use Length => Then Only Time Only
+  Hints
+  - You Can Use * Operator Only In Calculation
+  - Set
+  - Spread Operator
+  - Math Object Methods
+*/
+
+let nu1 = [10, 30, 10, 20];
+let nu2 = [30, 20, 10];
+
+console.log(Math.max(...nu2)*(nu1.concat(nu2).length)); // 210
+// bageeb el max fi nu2 w ba7ot nu1 w nu2 3ala ba3d w ba7sb el lenght bta3hom w bekoon 7 
+// w ba3deen adrabo fi max nu2 ==> 30*7=210
+
+/*
+  Regular Expression
+  - Email
+  - IP
+  - Phone
+  - URL
+*/
+let str1 = '10 20 100 1000 5000';
+let str2 = 'Os1 Os12 Os123 Os123Os Os12312Os123';
+
+let invalidEmail = 'Osama@@@gmail....com'; // Not valid
+let validEmail = 'o@nn.sa'; 
+
+let ip = '192.168.2.1' // ipv4
+
+let url = 'elzero.org';
+// let url = 'elzero.org/';
+// let url = 'http://elzero.org/';
+// let url = 'http://www.elzero.org/';
+// let url = 'https://.elzero.org/';
+// let url = 'https://www.elzero.org/';
+// let url = 'https://www.elzero.org/?facebookid=fdsjfhslkdjsfkjf';
+
+
+/*
+  Regular Expression
+
+  Syntax
+  /pattern/modifier(s);
+  new RegExp("pattern", "modifier(s)")
+
+  Modifiers => Flags
+  i => case-insensitive ==> ya3ni msh haia5od Capital aw small w haigeeb a2rab index ll kelma
+  g => global ==> ya3ni haigeeb kol el results, msh awl result bs
+  m => Multilines
+
+  Search Methods
+  - match(Pattern)
+
+  Match
+  -- Matches A String Against a Regular Expression Pattern
+  -- Returns An Array With The Matches
+  -- Returns null If No Match Is Found.
+*/
+
+let myString = "Hello Elzero Web School I Love elzero";
+
+
+// console.log(myString.match(/Elzero/)); // bashof eli been // mawgoda fi anhi index
+//Or
+// let regex = /Elzero/;
+// let regex = /elzero/i; 
+let regex = /elzero/ig;
+console.log(myString.match(regex));
+
+
+/*
+  Regular Expression
+
+  Ranges
+
+  - Part 1
+  (X|Y) => X Or Y
+  [0-9] => 0 To 9 ==> between
+  [^0-9] => Any Character Not 0 To 9 ==> ai charachter ma3ada mn 0 to 9
+  Practice
+
+  - Part 2
+  [a-z] ==> w lw fi nums msh haigbhom w haigeeb mn a to z
+  [^a-z] ==> 3aksaha, msh haigeeb mn a-z w haigeeb ba2ii el charachters
+  [A-Z]
+  [^A-Z]
+  [abc]
+  [^abc]
+
+*/
+
+let tld = "Com Net Org Info Code Io";
+let tldRe = /(org|info|io)/ig; 
+console.log(tld.match(tldRe));
+
+let nums2 = "12345678910";
+let nums2Re = /[0-2]/g;
+console.log(nums2.match(nums2Re));
+
+
+let specialNums = "1!2@3#4$5%678910";
+let specialNumsRe = /[^0-9]/g; // ya3ni msh haigeb el nums w haigeb elspicaials
+console.log(specialNums.match(specialNumsRe));
+
+
+let practice = "Os1 Os1Os Os2 Os8 Os8Os";
+let practiceRe = /Os[5-9]Os/g; 
+console.log(practice.match(practiceRe));
+
+
+let myString2 = "AaBbcdefG123!234%^&*";
+
+let  atozSmall = /[a-z]/g;
+console.log(myString2.match(atozSmall));
+
+let  notAtozSmall = /[^a-z]/g;
+console.log(myString2.match(notAtozSmall));
+
+let  atozCap = /[A-Z]/g;
+console.log(myString2.match(atozCap));
+
+let  notAtozCap = /[^A-Z]/g;
+console.log(myString2.match(notAtozCap));
+
+let aAndcAnde = /[ace]/g;
+console.log(myString2.match(aAndcAnde));
+
+let NotaAndcAnde = /[^ace]/ig;
+console.log(myString2.match(NotaAndcAnde));
+
+let lettersCapAndSmall = /[a-z]/ig; // [a-zA-Z]
+console.log(myString2.match(lettersCapAndSmall));
+
+let NotlettersCapAndSmall = /[^a-zA-Z]/g;
+console.log(myString2.match(NotlettersCapAndSmall));
+
+let special = /[^a-z^A-Z]/g; //ya3nii haigeeb kolo ma3ada elli ana katbah l2n feeh fil awal ^
+console.log(myString2.match(special));
+
+/*
+  Regular Expression
+  Character Classes
+  . => matches any character, except newline or other line terminators.
+  \w => matches word characters. [a-z, A-Z, 0-9 And Underscore] ==> without spaces and special chars
+  \W => matches Non word characters ==> spaces and special chars without letters and nums
+  \d => matches digits from 0 to 9.
+  \D => matches non-digit characters.
+  \s => matches whitespace character.
+  \S => matches non whitespace character.
+*/
+
+let email = 'O@@@g...com O@g.com O@g.net A@Y.com O-g.com o@s.org 1@1.com';
+let dot = /./g;
+let word = /\w/g;
+let wordCap = /\W/g;
+let valid = /\w@/g; //ya3ni ai word ba3daha @
+let valid2 = /\w@\w.(com|net)/g; //ya3ni ai word ba3daha @ w ba3deen word ba3daha com aw net 
+console.log(email.match(dot));
+console.log(email.match(word));
+console.log(email.match(wordCap));
+console.log(email.match(valid));
+console.log(email.match(valid2));
+
+/*
+  Regular Expression
+  Character Classes
+  \b => matches at the beginning or end of a word.
+  \B => matches NOT at the beginning/end of a word.
+
+  Test Method ==> with if conditions
+  pattern.test(input) ==> outputs: true or false
+*/
+
+let names = "Sayed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
+let re = /(\bspam|spam\b)/ig;
+console.log(names.match(re));
+
+console.log(re.test(names));
+console.log(/(\bspam|spam\b)/ig.test("Osama")); // Osama fi spam word?
+console.log(/(\bspam|spam\b)/ig.test("1Spam")); 

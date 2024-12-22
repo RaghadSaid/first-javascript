@@ -353,7 +353,7 @@ let span = document.querySelector(".two1");
 console.log(span.parentElement);
 
 span.onclick = function () {
-  span.parentElement.style.opacity = '0';
+  span.parentElement.style.opacity = "0";
 };
 
 /*
@@ -403,35 +403,32 @@ let eventListener = document.querySelector(".event");
 
 // // eventListener.addEventListener("click", "String"); //Error
 
-eventListener.onclick = function(){
+eventListener.onclick = function () {
   let newP = eventListener.cloneNode(true);
   newP.className = "clone";
   document.body.appendChild(newP);
-}
+};
 // let cloned = document.querySelector(".clone"); //Error
 
 // cloned.onclick = function (){
 //   console.log("I'm Cloned");
 // }
 
-document.addEventListener("click", function(e){ //e-element / target-elli ana b click 3aleeh 
-  if (e.target.className === "clone"){
-    console.log("I'm Cloned")
-
+document.addEventListener("click", function (e) {
+  //e-element / target-elli ana b click 3aleeh
+  if (e.target.className === "clone") {
+    console.log("I'm Cloned");
   }
-})
-
+});
 
 /* DOM Challenge */
 
 let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-myArr.forEach(function(n){
-  document.write(`<div style="color: gray; font-size: 20px; margin: 5px; background-color: white;">Product ${n}</div>`);
+myArr.forEach(function (n) {
+  document.write(
+    `<div style="color: gray; font-size: 20px; margin: 5px; background-color: white;">Product ${n}</div>`
+  );
 });
-
-
-
-
 
 /*
   BOM [Browser Object Model]
@@ -477,7 +474,6 @@ window.document.title = "Hello JS";
 
 // console.log(promptMsg);
 
-
 /*
   BOM [Browser Object Model]
   - setTimeout b3d spacific time, el function hatshta8al
@@ -485,13 +481,13 @@ window.document.title = "Hello JS";
   - clearTimeout(Identifier)
 */
 
-// setTimeout(function () { //print msg after 3 secs, w elli ta7taha the same 
+// setTimeout(function () { //print msg after 3 secs, w elli ta7taha the same
 //   console.log("Msg");
 // }, 3000);
 
 // setTimeout(sayMsg, 3000);
 
-// function sayMsg() { 
+// function sayMsg() {
 //   console.log(`Iam Message`);
 // }
 
@@ -512,7 +508,6 @@ let btn2 = document.querySelector(".stop");
 btn2.onclick = function () {
   clearTimeout(counter); // (handeler => let counter)
 };
-
 
 /*
   BOM [Browser Object Model]
@@ -624,8 +619,8 @@ console.log(history);
 */
 
 let myNewWindow = window.open("https://google.com", "", "width=500,height=500");
-myNewWindow.focus(); //be focus 3ala el new window
-myNewWindow.close(); // close new window
+// myNewWindow.focus(); //be focus 3ala el new window
+// myNewWindow.close(); // close new window
 
 // window.scrollTo({
 //   left: 500,
@@ -640,7 +635,7 @@ myNewWindow.close(); // close new window
   - scrollY [Alias => PageYOffset]
 */
 
-// console.log(window.scrollX === window.pageXOffset); // 
+// console.log(window.scrollX === window.pageXOffset); //
 
 let btn3 = document.querySelector(".scrollUp");
 
@@ -650,7 +645,6 @@ window.onscroll = function () {
   } else {
     btn3.style.display = "none";
   }
-  
 };
 
 btn3.onclick = function () {
@@ -709,16 +703,20 @@ btn3.onclick = function () {
 let lis = document.querySelectorAll("ul li");
 let exp = document.querySelector(".experiment");
 
-if (window.localStorage.getItem("color")){ // if there os color in local storage
+if (window.localStorage.getItem("color")) {
+  // if there os color in local storage
   // [1] Add Color to Div
   exp.style.backgroundColor = window.localStorage.getItem("color");
   //[2] Remove Active Class from All Lis
   //Remove Active Class from all lis
-  lis.forEach((li) => { // lama a click 3ala ai li hae-remove al active mn 3ala ba2i el lis
+  lis.forEach((li) => {
+    // lama a click 3ala ai li hae-remove al active mn 3ala ba2i el lis
     li.classList.remove("active");
-  })
+  });
   // [3] Add Active Class to Current Color
-  document.querySelector(`[data-color="${window.localStorage.getItem("color")}"]`).classList.add("active");
+  document
+    .querySelector(`[data-color="${window.localStorage.getItem("color")}"]`)
+    .classList.add("active");
 }
 
 lis.forEach((li) => {
@@ -731,12 +729,11 @@ lis.forEach((li) => {
     // Add Active Class to Current Element
     e.currentTarget.classList.add("active"); // lama a click 3ala item haikon hwa el active
     //Add Current Color to Local Storage
-    window.localStorage.setItem("color", e.currentTarget.dataset.color) // el localstorage hatfdal bnafs a5er color ana dost 3aleeh
+    window.localStorage.setItem("color", e.currentTarget.dataset.color); // el localstorage hatfdal bnafs a5er color ana dost 3aleeh
     // Change Div Background Color
     exp.style.backgroundColor = e.currentTarget.dataset.color;
-
-  })
-})
+  });
+});
 
 /*
   BOM [Browser Object Model]
@@ -771,7 +768,6 @@ document.querySelector(".name").onblur = function () {
 // let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
 // let [a, b, c, d] = myFriends; // hai7ot kol name fil 7arf elmokabl (a=Ahmed, b=Sayed, ...)
 
-
 let a = 1;
 let b = 2;
 let c = 3;
@@ -799,18 +795,21 @@ console.log(z);
   - Destructuring Array Advanced Examples
 */
 
-let myFriends2 = ["Ahmed", "Sayed", "Ali", ["Shady", "Amr", ["Mohamed", "Gamal"]]];
+let myFriends2 = [
+  "Ahmed",
+  "Sayed",
+  "Ali",
+  ["Shady", "Amr", ["Mohamed", "Gamal"]],
+];
 
 // console.log(myFriends2[3][2][1]); // 3lshan awsal l Gamal with index
 
-let [, , , [a2, ,[, b2]]] = myFriends2;
+let [, , , [a2, , [, b2]]] = myFriends2;
 
 console.log(a2); // Shady
 console.log(b2); //Gamal
 
-
 // let [, , , [a2, , [, b2]]] = myFriends2;
-
 
 // console.log(a2); // Shady
 // console.log(b2); // Gamal
@@ -871,7 +870,6 @@ console.log(theName);
 console.log(theAge);
 console.log(theCountry);
 
-
 /*
   Destructuring
   - Destructuring Object
@@ -894,8 +892,13 @@ const user2 = {
 };
 
 const {
-  theName2: n, theAge2: a3, theCountry2, theColor: co = "Red", skills: { html: h, css }, } = user2;
-  // theName2:n ==> ya3nii ba2olo en theName2 mkan var n
+  theName2: n,
+  theAge2: a3,
+  theCountry2,
+  theColor: co = "Red",
+  skills: { html: h, css },
+} = user2;
+// theName2:n ==> ya3nii ba2olo en theName2 mkan var n
 
 console.log(n);
 console.log(a3);
@@ -942,17 +945,26 @@ function showDetails({ theName3: n, theAge3: a, skills3: { css: c } } = user3) {
   - Destructuring Mixed Content
 */
 const user4 = {
-  theName4: "Raghad", theAge4: 29, skills4: ["HTML", "CSS", "JS"], addresses: {
-    egypt: "Cairo", ksa: "Riyadh",
+  theName4: "Raghad",
+  theAge4: 29,
+  skills4: ["HTML", "CSS", "JS"],
+  addresses: {
+    egypt: "Cairo",
+    ksa: "Riyadh",
   },
 };
 
-const {theName4: n2, theAge4: a4, skills4: [, two, three], addresses: {egypt: e4}} = user4;
+const {
+  theName4: n2,
+  theAge4: a4,
+  skills4: [, two, three],
+  addresses: { egypt: e4 },
+} = user4;
 
 console.log(`Your name is: ${n2}`);
 console.log(`Your Age is: ${a4}`);
 console.log(`Your Skills is: ${two}, ${three}`);
-console.log(`Your Live in: ${e4}`)
+console.log(`Your Live in: ${e4}`);
 
 /*
   Destructuring
@@ -968,15 +980,18 @@ let myFriends3 = [
 ];
 
 let {
- title: o, age: g, available: av, skills:[first2, second2]
-} = myFriends3[chosen-1]; 
+  title: o,
+  age: g,
+  available: av,
+  skills: [first2, second2],
+} = myFriends3[chosen - 1];
 
 console.log(`Your Title is: ${o}`);
 console.log(`Your Age is: ${g}`);
 
-if(av===true){
+if (av === true) {
   console.log(`Available`);
-} else{
+} else {
   console.log(`Not Available`);
 }
 console.log(`Your Skills: ${first2}, ${second2}`);
@@ -1117,7 +1132,7 @@ console.log(myMap);
 
 let myNewObject = {
   10: "Number",
-  "10": "String",
+  10: "String",
 };
 
 console.log(myNewObject[10]);
@@ -1126,7 +1141,7 @@ let myNewMap = new Map();
 myNewMap.set(10, "Number");
 myNewMap.set("10", "String");
 myNewMap.set(true, "Boolean");
-myNewMap.set({a: 1, b: 2}, "Object");
+myNewMap.set({ a: 1, b: 2 }, "Object");
 myNewMap.set(function doSomething() {}, "Function");
 
 console.log(myNewMap.get(10));
@@ -1247,7 +1262,8 @@ console.log(Array.from(mySet2));
 
 // console.log([...new Set(myArray)]); // Future
 
-function af() { // af ==> array from
+function af() {
+  // af ==> array from
   return Array.from(arguments);
 }
 
@@ -1306,8 +1322,7 @@ let myNumber = 5;
 //   return e > 5;
 // });
 
-
-let check = nums.some(function(e){
+let check = nums.some(function (e) {
   return e > this;
 }, myNumber); // ba7ot myNumber hna badl ama aktb gwa e>5, w ba7ot badlha e>this
 
@@ -1329,9 +1344,9 @@ let range = {
   max: 20,
 };
 
-let checkNumberRange = nums.some(function(e){
+let checkNumberRange = nums.some(function (e) {
   return e >= this.min && e <= this.max;
-}, range ); // this
+}, range); // this
 console.log(checkNumberRange);
 
 /*
@@ -1361,11 +1376,10 @@ console.log(locationsArray);
 let locationArrayNumbers = locationsArray.map((n) => +n);
 console.log(locationArrayNumbers);
 
-let chek = locationArrayNumbers.every(function(e){
+let chek = locationArrayNumbers.every(function (e) {
   return e > this;
 }, mainLocation);
 console.log(chek);
-
 
 /*
   Spread Operator => ...Iterable
@@ -1393,7 +1407,7 @@ console.log(copyArray);
 
 // Push Inside Array
 
-let allFriends =  ["Osama", "Ahmed", "Sayed"];
+let allFriends = ["Osama", "Ahmed", "Sayed"];
 let thisYearFriends = ["Sameh", "Mahmoud"];
 
 allFriends.push(...thisYearFriends);
@@ -1416,8 +1430,7 @@ let objTwo = {
   d: 4,
 };
 
-console.log({...objOne, ...objTwo, e: 5});
-
+console.log({ ...objOne, ...objTwo, e: 5 });
 
 /*
   Map And Set + What You Learn => Challenge
@@ -1438,8 +1451,8 @@ console.log({...objOne, ...objTwo, e: 5});
 let nu1 = [10, 30, 10, 20];
 let nu2 = [30, 20, 10];
 
-console.log(Math.max(...nu2)*(nu1.concat(nu2).length)); // 210
-// bageeb el max fi nu2 w ba7ot nu1 w nu2 3ala ba3d w ba7sb el lenght bta3hom w bekoon 7 
+console.log(Math.max(...nu2) * nu1.concat(nu2).length); // 210
+// bageeb el max fi nu2 w ba7ot nu1 w nu2 3ala ba3d w ba7sb el lenght bta3hom w bekoon 7
 // w ba3deen adrabo fi max nu2 ==> 30*7=210
 
 /*
@@ -1449,22 +1462,21 @@ console.log(Math.max(...nu2)*(nu1.concat(nu2).length)); // 210
   - Phone
   - URL
 */
-let str1 = '10 20 100 1000 5000';
-let str2 = 'Os1 Os12 Os123 Os123Os Os12312Os123';
+let str1 = "10 20 100 1000 5000";
+let str2 = "Os1 Os12 Os123 Os123Os Os12312Os123";
 
-let invalidEmail = 'Osama@@@gmail....com'; // Not valid
-let validEmail = 'o@nn.sa'; 
+let invalidEmail = "Osama@@@gmail....com"; // Not valid
+let validEmail = "o@nn.sa";
 
-let ip = '192.168.2.1' // ipv4
+let ip = "192.168.2.1"; // ipv4
 
-let url = 'elzero.org';
+let url = "elzero.org";
 // let url = 'elzero.org/';
 // let url = 'http://elzero.org/';
 // let url = 'http://www.elzero.org/';
 // let url = 'https://.elzero.org/';
 // let url = 'https://www.elzero.org/';
 // let url = 'https://www.elzero.org/?facebookid=fdsjfhslkdjsfkjf';
-
 
 /*
   Regular Expression
@@ -1489,14 +1501,12 @@ let url = 'elzero.org';
 
 let myString = "Hello Elzero Web School I Love elzero";
 
-
 // console.log(myString.match(/Elzero/)); // bashof eli been // mawgoda fi anhi index
 //Or
 // let regex = /Elzero/;
-// let regex = /elzero/i; 
-let regex = /elzero/ig;
+// let regex = /elzero/i;
+let regex = /elzero/gi;
 console.log(myString.match(regex));
-
 
 /*
   Regular Expression
@@ -1520,45 +1530,42 @@ console.log(myString.match(regex));
 */
 
 let tld = "Com Net Org Info Code Io";
-let tldRe = /(org|info|io)/ig; 
+let tldRe = /(org|info|io)/gi;
 console.log(tld.match(tldRe));
 
 let nums2 = "12345678910";
 let nums2Re = /[0-2]/g;
 console.log(nums2.match(nums2Re));
 
-
 let specialNums = "1!2@3#4$5%678910";
 let specialNumsRe = /[^0-9]/g; // ya3ni msh haigeb el nums w haigeb elspicaials
 console.log(specialNums.match(specialNumsRe));
 
-
 let practice = "Os1 Os1Os Os2 Os8 Os8Os";
-let practiceRe = /Os[5-9]Os/g; 
+let practiceRe = /Os[5-9]Os/g;
 console.log(practice.match(practiceRe));
-
 
 let myString2 = "AaBbcdefG123!234%^&*";
 
-let  atozSmall = /[a-z]/g;
+let atozSmall = /[a-z]/g;
 console.log(myString2.match(atozSmall));
 
-let  notAtozSmall = /[^a-z]/g;
+let notAtozSmall = /[^a-z]/g;
 console.log(myString2.match(notAtozSmall));
 
-let  atozCap = /[A-Z]/g;
+let atozCap = /[A-Z]/g;
 console.log(myString2.match(atozCap));
 
-let  notAtozCap = /[^A-Z]/g;
+let notAtozCap = /[^A-Z]/g;
 console.log(myString2.match(notAtozCap));
 
 let aAndcAnde = /[ace]/g;
 console.log(myString2.match(aAndcAnde));
 
-let NotaAndcAnde = /[^ace]/ig;
+let NotaAndcAnde = /[^ace]/gi;
 console.log(myString2.match(NotaAndcAnde));
 
-let lettersCapAndSmall = /[a-z]/ig; // [a-zA-Z]
+let lettersCapAndSmall = /[a-z]/gi; // [a-zA-Z]
 console.log(myString2.match(lettersCapAndSmall));
 
 let NotlettersCapAndSmall = /[^a-zA-Z]/g;
@@ -1579,12 +1586,12 @@ console.log(myString2.match(special));
   \S => matches non whitespace character.
 */
 
-let email = 'O@@@g...com O@g.com O@g.net A@Y.com O-g.com o@s.org 1@1.com';
+let email = "O@@@g...com O@g.com O@g.net A@Y.com O-g.com o@s.org 1@1.com";
 let dot = /./g;
 let word = /\w/g;
 let wordCap = /\W/g;
 let valid = /\w@/g; //ya3ni ai word ba3daha @
-let valid2 = /\w@\w.(com|net)/g; //ya3ni ai word ba3daha @ w ba3deen word ba3daha com aw net 
+let valid2 = /\w@\w.(com|net)/g; //ya3ni ai word ba3daha @ w ba3deen word ba3daha com aw net
 console.log(email.match(dot));
 console.log(email.match(word));
 console.log(email.match(wordCap));
@@ -1602,9 +1609,315 @@ console.log(email.match(valid2));
 */
 
 let names = "Sayed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
-let re = /(\bspam|spam\b)/ig;
+let re = /(\bspam|spam\b)/gi;
 console.log(names.match(re));
 
 console.log(re.test(names));
-console.log(/(\bspam|spam\b)/ig.test("Osama")); // Osama fi spam word?
-console.log(/(\bspam|spam\b)/ig.test("1Spam")); 
+console.log(/(\bspam|spam\b)/gi.test("Osama")); // Osama fi spam word?
+console.log(/(\bspam|spam\b)/gi.test("1Spam"));
+
+/*
+  Regular Expression
+
+  Quantifiers
+  n+    => One Or More
+  n*    => zero or more
+  n?    => zero or one
+*/
+
+let mails = "o@nn.sa osama@gmail.com elzero@gmail.net osama@mail.ru"; // All Emails
+// let mailsRe = /\w+@\w+.(com|net)/ig;
+let mailsRe = /\w+@\w+.\w+/gi;
+console.log(mails.match(mailsRe));
+
+let nums3 = "0110 10 150 05120 0560 350 00"; // 0 Numbers Or No 0
+let nums3Re = /0\d*0/gi;
+console.log(nums3.match(nums3Re));
+
+let urls = "https://google.com http://www.website.net web.com"; // http + https
+let urlsRe = /(https?:\/\/)?(www.)?\w+.\w+/gi; // el ? ya3nii lw fi a5ro s hato w lw mafeesh s bardo hato
+console.log(urls.match(urlsRe));
+
+/*
+  Regular Expression
+
+  Quantifiers
+  n{x}   => Number of
+  n{x,y} => Range
+  n{x,}  => At Least x
+*/
+
+let serials = "S100S S3000S S50000S S950000S";
+
+console.log(serials.match(/s\d{3}s/gi)); // S[Three Number]S
+console.log(serials.match(/s\d{4,5}s/gi)); // S[Four Or Five Number]S
+console.log(serials.match(/s\d{4,}s/gi)); // S[At Least Four]S
+
+/*
+  Regular Expression
+
+  Quantifiers
+  $  => End With Something wala l2
+  ^  => Start With Something wala l2
+  ?= => Followed By Something
+  ?! => Not Followed By Something
+*/
+
+let myString3 = "We Love Programming";
+let names2 = "1OsamaZ 2AhmedZ 3Mohammed 4MoustafaZ 5GamalZ";
+
+console.log(/ing$/gi.test(myString3));
+console.log(/^we/gi.test(myString3));
+console.log(/lz$/gi.test(names2));
+console.log(/^\d/gi.test(names2));
+
+console.log(names2.match(/\d\w{5}(?=Z)/gi));
+console.log(names2.match(/\d\w{8}(?!Z)/gi));
+
+/*
+  Regular Expression
+
+  - replace ==> be3ml replace l awl 7aga t2ablni bs 
+  - replaceAll ==> be3ml replace l kolo
+*/
+
+let txt = "We Love Programming And @ Because @ Is Amazing";
+console.log(txt.replace("@", "JavaScript"));
+console.log(txt.replaceAll("@", "JavaScript"));
+let ree = /@/gi;
+console.log(txt.replaceAll(ree, "JavaScript"));
+console.log(txt.replaceAll(/@/gi, "JavaScript"));
+
+/*
+  Regular Expression
+  - Input Form Validation Practice
+*/
+
+document.getElementById("register").onsubmit = function () {
+  let phoneInput = document.getElementById("phone").value;
+  let phoneRe = /\(\d{4}\)\s\d{3}-\d{4}/; // (1234) 567-8910
+  let validationResult = phoneRe.test(phoneInput);
+  if (validationResult === false) {
+    return false;
+  }
+  return true;
+};
+
+/*
+  Regular Expression
+  - Challenge
+*/
+
+let url1 = "elzero.org";
+let url2 = "http://elzero.org";
+let url3 = "https://elzero.org";
+let url4 = "https://www.elzero.org";
+let url5 = "https://www.elzero.org:8080/articles.php?id=100&cat=topics";
+
+let re1 = /\w+.\w+/gi;
+let re2 = /https?:\/\/\w+.\w+/gi;
+let re3 = /https:\/\/\w+.\w+/gi;
+let re4 = /https?:\/\/(www.)?\w+.\w+/gi;
+let re5 = /(https?:\/\/)?(www.)?\w+.\w+/gi;
+
+console.log(url1.match(re1));
+console.log(url2.match(re2));
+console.log(url3.match(re3));
+console.log(url4.match(re4));
+console.log(url5.match(re5));
+
+//OOP
+/*
+  Constructor Function
+*/
+
+function User(id, username, salary) {
+  this.i = id; //this 2asdi beha el user data elli hada5alo ta7t zai userOne
+  this.u = username;
+  this.s = salary + 1000; // ya3nii azawd 3ala salary kol el users 1000
+}
+
+let userOne = new User(100, "Elzero", 5000); // 5000+1000
+let userTwo = new User(101, "Hassan", 6000); // 6000+1000
+let userThree = new User(102, "Sayed", 7000); // 7000+1000
+
+console.log(userOne.i);
+console.log(userOne.u);
+console.log(userOne.s);
+
+console.log(userTwo.i);
+console.log(userTwo.u);
+console.log(userTwo.s);
+
+console.log(userThree.i);
+console.log(userThree.u);
+console.log(userThree.s);
+
+// const userOne = {
+//   id: 100,
+//   username: "Elzero",
+//   salary: 5000,
+// };
+
+// const userTwo = {
+//   id: 101,
+//   username: "Hassan",
+//   salary: 6000,
+// };
+
+// const userThree = {
+//   id: 102,
+//   username: "Sayed",
+//   salary: 7000,
+// };
+
+/*
+  Constructor Function
+  - New Syntax
+  - Deal With Properties And Methods
+*/
+
+class User {
+  // 3amal convert ll function to class
+  constructor(id, username, salary) {
+    //Properties
+    this.i = id;
+    this.u = username || "Unknown"; //ya3nii lw el user maktabsh el name haiban mkanha Unknown
+    this.s = salary < 6000 ? salary + 500 : salary; //  lw salary < 6000 ha7ot zyada 500 w lw l2 yb2a zi maho
+    this.msg = function () {
+      return `Hello ${this.u} Your Salary is ${this.s}`;
+    };
+  }
+  // Methods
+  writeMsg() {
+    return `Hello ${this.u} Your Salary is ${this.s}`;
+  }
+}
+
+let userOne1 = new User(100, "Elzero", 5000);
+
+console.log(userOne1.i);
+console.log(userOne1.u);
+console.log(userOne1.s);
+console.log(userOne1.msg());
+console.log(userOne1.writeMsg());
+
+console.log(userOne1.msg); // Native Code
+console.log(userOne1.writeMsg); // Native Code
+
+console.log(userOne1 instanceof User); // hwa userone1 ma3mol mn User? => True
+console.log(userOne1.constructor === User);
+
+/*
+  Constructor Function
+  - Update Properties
+  - Built In Constructors
+*/
+
+class User {
+  constructor(id, username, salary) {
+    this.i = id;
+    this.u = username;
+    this.s = salary;
+  }
+  updateName(newName) {
+    // Method for update Name
+    this.u = newName;
+  }
+}
+
+let userOne2 = new User(100, "Elzero", 5000);
+
+console.log(userOne2.u);
+userOne2.updateName("Osama");
+console.log(userOne2.u);
+
+let strOne = "Elzero";
+let strTwo = new String("Elzero");
+
+console.log(typeof strOne);
+console.log(typeof strTwo);
+
+console.log(strOne instanceof String);
+console.log(strTwo instanceof String);
+
+console.log(strOne.constructor === String);
+console.log(strTwo.constructor === String);
+
+/*
+  Class
+  - Static Properties And Methods
+*/
+
+class User {
+  // Static Property
+  static count = 0; // static ya3ni 7aga 5asa b el class, w bnadi 3aleeh ta7t b class name
+
+  constructor(id, username, salary) {
+    this.i = id;
+    this.u = username;
+    this.s = salary;
+    User.count++; //kol ama add user gdeed haizawd el count 1
+  }
+
+  // Static Methods
+  static sayHello() {
+    return `Hello From Class`;
+  }
+  static countMembers() {
+    return `${this.count} Members Created`; // print Members Created w el count value
+  }
+}
+
+let userOne3 = new User(100, "Elzero", 5000);
+let userTwo2 = new User(101, "Ahmed", 5000);
+let userThree2 = new User(102, "Sayed", 5000);
+
+console.log(userOne3.u);
+console.log(userTwo2.u);
+console.log(userOne3.count);
+console.log(User.count); // 3lshan static bnadii 3aleeh b class name
+console.log(User.sayHello());
+console.log(User.countMembers());
+
+/*
+  Class
+  - Inheritance
+*/
+
+// Parent Class
+class User {
+  constructor(id, username) {
+    this.i = id;
+    this.u = username;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+}
+
+// Derived Class
+class Admin extends User { // ba5od mn class User l class el Admin
+  constructor(id, username, permissions) {
+    super(id, username); // bashoof ha5od eh w eh mn class User
+    this.p = permissions;
+  }
+}
+
+class Superman extends Admin {``  
+  constructor(id, username, permissions, ability) {
+    super(id, username, permissions);
+    this.a = ability;
+  }
+}
+
+let userOne4 = new User(100, "Elzero");
+let adminOne = new Admin(110, "Mahmoud", 1);
+
+console.log(userOne4.u);
+console.log(userOne4.sayHello());
+console.log("####");
+console.log(adminOne.i);
+console.log(adminOne.u);
+console.log(adminOne.p);
+console.log(adminOne.sayHello());

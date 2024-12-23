@@ -618,7 +618,7 @@ console.log(history);
   - scrollBy(x, y || Options)
 */
 
-let myNewWindow = window.open("https://google.com", "", "width=500,height=500");
+// let myNewWindow = window.open("https://google.com", "", "width=500,height=500");
 // myNewWindow.focus(); //be focus 3ala el new window
 // myNewWindow.close(); // close new window
 
@@ -1777,7 +1777,7 @@ console.log(userThree.s);
   - Deal With Properties And Methods
 */
 
-class User {
+class User1 {
   // 3amal convert ll function to class
   constructor(id, username, salary) {
     //Properties
@@ -1794,7 +1794,7 @@ class User {
   }
 }
 
-let userOne1 = new User(100, "Elzero", 5000);
+let userOne1 = new User1(100, "Elzero", 5000);
 
 console.log(userOne1.i);
 console.log(userOne1.u);
@@ -1805,8 +1805,8 @@ console.log(userOne1.writeMsg());
 console.log(userOne1.msg); // Native Code
 console.log(userOne1.writeMsg); // Native Code
 
-console.log(userOne1 instanceof User); // hwa userone1 ma3mol mn User? => True
-console.log(userOne1.constructor === User);
+console.log(userOne1 instanceof User1); // hwa userone1 ma3mol mn User? => True
+console.log(userOne1.constructor === User1);
 
 /*
   Constructor Function
@@ -1814,7 +1814,7 @@ console.log(userOne1.constructor === User);
   - Built In Constructors
 */
 
-class User {
+class User2 {
   constructor(id, username, salary) {
     this.i = id;
     this.u = username;
@@ -1826,7 +1826,7 @@ class User {
   }
 }
 
-let userOne2 = new User(100, "Elzero", 5000);
+let userOne2 = new User2(100, "Elzero", 5000);
 
 console.log(userOne2.u);
 userOne2.updateName("Osama");
@@ -1849,7 +1849,7 @@ console.log(strTwo.constructor === String);
   - Static Properties And Methods
 */
 
-class User {
+class User3 {
   // Static Property
   static count = 0; // static ya3ni 7aga 5asa b el class, w bnadi 3aleeh ta7t b class name
 
@@ -1857,7 +1857,7 @@ class User {
     this.i = id;
     this.u = username;
     this.s = salary;
-    User.count++; //kol ama add user gdeed haizawd el count 1
+    User3.count++; //kol ama add user gdeed haizawd el count 1
   }
 
   // Static Methods
@@ -1869,16 +1869,16 @@ class User {
   }
 }
 
-let userOne3 = new User(100, "Elzero", 5000);
-let userTwo2 = new User(101, "Ahmed", 5000);
-let userThree2 = new User(102, "Sayed", 5000);
+let userOne3 = new User3(100, "Elzero", 5000);
+let userTwo2 = new User3(101, "Ahmed", 5000);
+let userThree2 = new User3(102, "Sayed", 5000);
 
 console.log(userOne3.u);
 console.log(userTwo2.u);
 console.log(userOne3.count);
-console.log(User.count); // 3lshan static bnadii 3aleeh b class name
-console.log(User.sayHello());
-console.log(User.countMembers());
+console.log(User3.count); // 3lshan static bnadii 3aleeh b class name
+console.log(User3.sayHello());
+console.log(User3.countMembers());
 
 /*
   Class
@@ -1886,7 +1886,7 @@ console.log(User.countMembers());
 */
 
 // Parent Class
-class User {
+class User4 {
   constructor(id, username) {
     this.i = id;
     this.u = username;
@@ -1897,21 +1897,21 @@ class User {
 }
 
 // Derived Class
-class Admin extends User { // ba5od mn class User l class el Admin
+class Admin extends User4 { // ba5od mn class User l class el Admin
   constructor(id, username, permissions) {
-    super(id, username); // bashoof ha5od eh w eh mn class User
+    super(id, username); //super ya3ni hawreth mn el user, w bashoof ha5od eh w eh mn class User
     this.p = permissions;
   }
 }
 
-class Superman extends Admin {``  
+class Superman extends Admin {
   constructor(id, username, permissions, ability) {
     super(id, username, permissions);
     this.a = ability;
   }
 }
 
-let userOne4 = new User(100, "Elzero");
+let userOne4 = new User4(100, "Elzero");
 let adminOne = new Admin(110, "Mahmoud", 1);
 
 console.log(userOne4.u);
@@ -1921,3 +1921,437 @@ console.log(adminOne.i);
 console.log(adminOne.u);
 console.log(adminOne.p);
 console.log(adminOne.sayHello());
+
+
+/*
+  Encapsulation ==> ta8leef el data
+  - Class Fields Are Public By Default 
+  - Guards The Data Against Illegal Access.
+  - Helps To Achieve The Target Without Revealing Its Complex Details.
+  - Will Reduce Human Errors.
+  - Make The App More Flexible And Manageable.
+  - Simplifies The App.
+*/
+
+class User5 {
+  // Private Property
+  #e; // lazm a3rfo
+  constructor(id, username, eSalary) {
+    this.i = id;
+    this.u = username;
+    this.#e = eSalary; 
+  }
+  getSalary() {
+    return parseInt(this.#e); // method for analys mkan el eSalary "5000 Gneh" w bia5od mno el rakm bs
+  }
+}
+
+let userOn = new User5(100, "Elzero", "5000 Gneh");
+
+console.log(userOn.u);
+console.log(userOn.getSalary() * 0.3);
+
+/*
+  Prototype
+  - Introduction
+  - Prototypes are the mechanism by which JavaScript objects
+    inherit features from one another.
+*/
+
+class User6 {
+  constructor(id, username) {
+    this.i = id;
+    this.u = username;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+}
+
+let userOnee = new User6(100, "Elzero");
+console.log(userOnee.u);
+
+console.log(User6.prototype);
+
+let strOne1 = "Elzero";
+
+console.log(String.prototype);
+
+/*
+  Prototype
+  - Add To Prototype Chain
+  - Extend Built In Constructors Features
+*/
+
+class User7 {
+  constructor(id, username) {
+    this.i = id;
+    this.u = username;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+}
+
+let userOne5 = new User7(100, "Elzero");
+console.log(userOne5.u);
+console.log(User7.prototype); // el prototype bewreth mno
+console.log(userOne5);
+
+User7.prototype.sayWelcome = function () {
+  return `Welcome ${this.u}`;
+};
+
+Object.prototype.love = "Elzero Web School"; // ya3nii ha5alii el love gwah value "Elzero wb Scool"
+
+String.prototype.addDotBeforeAndAfter = function (val) {
+  return `.${this}.`;
+};
+
+let myString1 = "Elzero";
+
+/*
+  Object Meta Data And Descriptor
+  - writable
+  - enumerable
+  - configurable [Cannot Delete Or Reconfigure]
+*/
+
+const myObject1 = {
+  a: 1,
+  b: 2,
+};
+
+Object.defineProperty(myObject1, "c", { //defineProperty => add new property to Obj, aw Edit on property mawgoda
+  // defult for elements : false, f lazm aktb elli m7tagah
+  writable: false, // lw true=> ha2dr aktb 3aliha, lw false => msh ha3rf aktb w msh hai2bal edit
+  enumerable: true, // lw false, yb2a ai 7aga fiha loop, el property di msh hattb2 3aleha
+  configurable: false, // lw false ==> yb2a wala ha3rf amsa7 el property wala a3mel 3aleeh edit
+  value: 3,
+});
+
+// Object.defineProperty(myObject1, "c", { // momken a3ml redefine w a8aer fil properties
+//   writable: false,
+//   enumerable: true,
+//   configurable: true, => Cannot redefine property
+//   value: 3,
+// });
+
+myObject1.c = 100;
+
+console.log(delete myObject1.c); // 3aiz a3mel dalete ll c
+
+for (let prop in myObject1) {
+  console.log(prop, myObject1[prop]); // ==> h print el prop el awl w ba3deen el value gambha
+}
+
+console.log(myObject1);
+
+/*
+  Object Meta Data And Descriptor
+  - Define Multiple Properties
+  - Check Descriptors
+*/
+
+const myObject2 = {
+  a: 1,
+  b: 2,
+};
+
+Object.defineProperties(myObject2, {
+  c: {
+    configurable: true,
+    value: 3,
+  },
+  d: {
+    configurable: true,
+    value: 4,
+  },
+  e: {
+    configurable: true,
+    value: 5,
+  },
+});
+
+console.log(myObject2);
+
+console.log(Object.getOwnPropertyDescriptor(myObject2, "d")); //Descriptor ==> el property "d" elli me7taga ageeb el data  bta3t el descriptor bta3ha 
+console.log(Object.getOwnPropertyDescriptors(myObject2)); // Descriptors => kol 7aga t5os el Obj
+
+
+/*
+  Date And Time
+  - Date Constructor
+
+  Static Methods
+  - Date.now()
+
+  - To Track Time You Need Starting Point
+  - Epoch Time Or Unix Time In Computer Science Is The Number of Seconds Since January 1, 1970.
+    Epoch  Or Unix Time ==> ya3nii 3add secs elli mart mn awl jan,1970
+  - Why 1970 [829 Days To 136 Years]
+
+  Search For
+  - Year 2038 Problem in Computer Science.
+*/
+
+let dateNow = new Date(); // el taree5 el 7alii b el youm w el wa2t
+
+console.log(dateNow);
+
+console.log(Date.now()); // 1000 Mill = 1 Second
+
+let seconds = Date.now() / 1000; // Number Of Seconds
+console.log(`Seconds ${seconds}`);
+
+let minutes = seconds / 60; // Number Of Minutes
+console.log(`Minutes ${minutes}`);
+
+let hours = minutes / 60; // Number Of Hours
+console.log(`Hours ${hours}`);
+
+let days = hours / 24; // Number Of Days
+console.log(`Days ${days}`);
+
+let years = days / 365; // Number Of Years
+console.log(`Years ${years}`);
+
+/*
+  Date And Time
+  - getTime() => Number Of Milliseconds
+  - getDate() => Day Of The Month (1-31)
+  - getFullYear()
+  - getMonth() => by index(0-11)
+  - getDay() => Day Of The Week (0 => sunday, 6 => saturday)
+  - getHours()
+  - getMinutes()
+  - getSeconds()
+*/
+
+let dateNow1 = new Date();
+let birthday = new Date("Jul 23, 95");
+let dateDiff = dateNow1 - birthday;
+
+console.log(dateDiff);
+console.log(dateDiff / 1000 / 60 / 60 / 24 / 365);
+
+console.log(dateNow1);
+console.log(dateNow1.getTime()); // bt return el time value b el milliseconds mn awl starf time to now
+console.log(dateNow1.getDate()); //  day of month "today is 23 dec"
+console.log(dateNow1.getFullYear()); // curntly year, momken use in copy write
+console.log(dateNow1.getMonth()); // begeeb el month b el index, ya3nii shahr 12 haikon 11
+console.log(dateNow1.getDay()); // day of the week ==>  by index, sun:0, monday:1 ...
+console.log(dateNow1.getHours()); // currntly hour
+console.log(dateNow1.getMinutes()); // currntly minutes
+console.log(dateNow1.getSeconds()); // currntly seconds
+
+
+/* set ==> edits
+  Date And Time
+  - setTime(Milliseconds)
+  - setDate() => Day Of The Month [Negative And Positive]
+  - setFullYear(year, month => Optional [0-11], day => Optional [1-31])
+  - setMonth(Month [0-11], Day => Optional [1-31]) [Negative And Positive]
+  - setHours(Hours [0-23], Minutes => Optional [0-59], Seconds => Optional [0-59], MS => Optional [0-999])
+  - setMinutes(Minutes [0-59], Seconds => Optional [0-59], MS => Optional [0-999])
+  - setSeconds(Seconds => [0-59], MS => Optional [0-999])
+*/
+
+let dateNow2 = new Date();
+console.log(dateNow2);
+
+console.log("#".repeat(66));
+
+// dateNow2.setTime(0); // awl wa2t mn 1 jan,1970
+// console.log(dateNow2);
+
+// console.log("#".repeat(66));
+
+// dateNow2.setTime(10000); // awl 10 sec mn bdait elwa2t
+// console.log(dateNow2);
+
+// console.log("#".repeat(66));
+
+// dateNow2.setDate(35); // bat7akm fi elyoum,, 35 ya3nii ba3d el shahr b 5 ayam mn elshahr elli ba3do
+// console.log(dateNow2);
+
+// dateNow2.setFullYear(2020, 13); // (year, month by index) w 13 ya3nii feb 2021
+// console.log(dateNow2);
+
+dateNow2.setMonth(15); // 11 => Dec 2024, 15 => ya3nii shahr April 2025
+console.log(dateNow2);
+
+/*
+  Date And Time
+
+  new Date(timestamp)
+  new Date(Date String)
+  new Date(Numeric Values)
+
+  Format
+  - "Oct 25 1982"
+  - "10/25/1982"
+  - "1982-10-25" => ISO International Standard
+  - "1982 10"
+  - "1982"
+  - "82"
+  - 1982, 9, 25, 2, 10, 0
+  - 1982, 9, 25
+  - "1982-10-25T06:10:00Z"
+
+  Date.parse("String") // Read Date From A String
+*/
+
+console.log(Date.parse("Oct 25 1982"));
+
+let date1 = new Date(0);
+console.log(date1);
+
+let date2 = new Date(404344800000);
+console.log(date2);
+
+let date3 = new Date("10-25-1982");
+console.log(date3);
+
+let date4 = new Date("1982-10-25");
+console.log(date4);
+
+let date5 = new Date("1982-10");
+console.log(date5);
+
+let date6 = new Date("82");
+console.log(date6);
+
+let date7 = new Date(1982, 9, 25, 2, 10, 0);
+console.log(date7);
+
+let date8 = new Date(1982, 9, 25);
+console.log(date8);
+
+let date9 = new Date("1982-10-25T06:10:00Z"); // ==> T fasel been el date w el time, z hwa time zone
+console.log(date9);
+
+/*
+  Date And Time
+  - Track Operations Time
+
+  Search
+  - performance.now()
+  - performance.mark()
+*/
+
+// Start Time
+let start = new Date();
+
+// Operation
+for (let i = 0; i < 100000; i++) {
+  // document.write(`<div>${i}</div>`); // hai3ml 100000 div
+  // hia hia nafs eltare2a
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(i));
+  document.body.appendChild(div);
+}
+
+// Time End
+let end = new Date();
+
+// Operation Duration
+let duration = end - start;
+
+console.log(duration);
+
+/*
+  Generators ==> function* / keyword => yield
+  - Generator Function Run Its Code When Required.
+  - Generator Function Return Special Object [Generator Object]
+  - Generators Are Iterable
+*/
+
+function* generateNumbers() {
+  yield 1;
+  console.log("Hello After Yield 1");
+  yield 2;
+  yield 3;
+  yield 4;
+}
+
+let generator = generateNumbers();
+
+console.log(typeof generator);
+console.log(generator);
+
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+
+for (let value of generateNumbers()) {
+  console.log(value);
+}
+
+for (let value of generator) {
+  console.log(value);
+}
+
+/*
+  Generators
+  - Delegate Generator
+*/
+
+function* generateNums() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+function* generateLetters() {
+  yield "A";
+  yield "B";
+  yield "C";
+}
+
+function* generateAll() {
+  yield* generateNums(); // * ya3nii print elli gwa generateNums
+  yield* generateLetters(); // * ya3nii print elli gwa generateLetters
+  yield* [4, 5, 6];
+}
+
+let generator1 = generateAll();
+
+console.log(generator1.next());
+console.log(generator1.next());
+console.log(generator1.next());
+console.log(generator1.next());
+console.log(generator1.next());
+console.log(generator1.next());
+console.log(generator1.return("Z")); // return bt2fl el generator function fi kol elli gai
+console.log(generator1.next());
+console.log(generator1.next());
+console.log(generator1.next());
+
+/*
+  Generators
+  - Generate Infinite Numbers
+  - Use Return Inside Generators
+*/
+
+function* generateNumbers() {
+  // yield 1;
+  // yield 2;
+  // return "A"; // msh hatgeeb elli ba3do
+  // yield 3;
+  // yield 4;
+  let index = 0;
+
+  // while (true) { // 3add la neha2i
+  //   yield index++;
+  }
+// }
+
+let generator2 = generateNumbers();
+
+console.log(generator2.next());
+console.log(generator2.next());
+console.log(generator2.next());
+console.log(generator2.next());

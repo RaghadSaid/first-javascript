@@ -2336,7 +2336,7 @@ console.log(generator1.next());
   - Use Return Inside Generators
 */
 
-function* generateNumbers() {
+ function* generateNumbers() {
   // yield 1;
   // yield 2;
   // return "A"; // msh hatgeeb elli ba3do
@@ -2355,3 +2355,285 @@ console.log(generator2.next());
 console.log(generator2.next());
 console.log(generator2.next());
 console.log(generator2.next());
+
+
+// JSON week-21
+/*
+  What Is JSON ?
+  - JavaScript Object Notation
+  - Format For Sharing Data Between Server And Client
+  - JSON Derived From JavaScript
+  - Alternative To XML
+  - File Extension Is .json
+
+  Why JSON ?
+  - Easy To Use And Read
+  - Used By Most Programming Languages And Its Frameworks
+  - You Can Convert JSON Object To JS Object And Vice Versa
+
+  JSON vs XML
+  ===================================================
+  = Text Based Format      = Markup Language        =
+  = Lightweight            = Heavier                =
+  = Does Not Use Tags      = Using Tags             =
+  = Shorter                = Not Short              =
+  = Can Use Arrays         = Cannot Use Arrays      =
+  = Not Support Comments   = Support Comments       =
+  ===================================================
+*/
+
+//video 170
+/*
+  JSON Syntax
+  - Data Added Inside Curly Braces {  }
+  - Data Added With Key : Value
+  - Key Should Be String Wrapped In Double Quotes ==> "string"
+  - Data Separated By Comma (,)
+  - Square Brackets [] For Arrays
+  - Curly Braces {} For Objects
+
+  Available Data Types
+  - String
+  - Number
+  - Object
+  - Array
+  - Boolean Values
+  - null
+*/
+
+//video 171
+
+/*
+  JSON
+  - API Overview
+  - Tools To Test API
+  - Preview Github API
+*/
+
+// video 172
+
+/*
+  JSON
+  - JSON.parse => Convert Text Data To JS Object
+  - JSON.stringify => Convert JS Object To JSON
+*/
+
+const myJsnonObjectFromServer = '{"Username": "Osama", "Age": 39}';
+console.log(typeof myJsnonObjectFromServer);
+console.log(myJsnonObjectFromServer);
+
+const myJsObject = JSON.parse(myJsnonObjectFromServer) // convert json code to js
+console.log(typeof myJsObject);
+console.log(myJsObject);
+
+myJsObject["Username"] = "Elzero";
+myJsObject["Age"] = 40;
+
+const myJsonObjectToServer = JSON.stringify(myJsObject) // convert js code to json
+console.log(typeof myJsonObjectToServer);
+console.log(myJsonObjectToServer);
+
+/*
+  To Understand Ajax, Fetch, Promises
+
+  Asynchronous vs Synchronous Programming
+  - Meaning
+
+  Synchronous ==> lazm tasalsol
+  - Operations Runs in Sequence
+  - Each Operation Must Wait For The Previous One To Complete
+  - Story From Real Life (metro-tickts)
+
+  Asynchronous ==> momken b twazy (paralle )
+  - Operations Runs In Parallel
+  - This Means That An Operation Can Occur while Another One Is Still Being Processed
+  - Story From Real Life (resturand-orders)
+
+  - Facebook As Example
+  - Simulation
+
+  Search
+  - JavaScript Is A Single-Threaded
+  - Multi Threaded Languages
+*/
+
+// Synchronous
+
+// console.log("1");
+// console.log("2");
+// window.alert("Operation");
+// console.log("3");
+
+// Asynchronous
+
+console.log("1");
+console.log("2");
+setTimeout(() => console.log("Operations"), 3000);
+console.log("3");
+
+/*
+  To Understand Ajax, Fetch, Promises
+
+  Call Stack || Stack Trace
+  -- JavaScript Engine Uses A Call Stack To Manage Execution Contexts
+  -- Mechanism To Make The Interpreter Track Your Calls
+  -- When Function Called It Added To The Stack
+  -- When Function Executed It Removed From The Stack
+  -- After Function Is Finished Executing The Interpreter Continue From The Last Point
+  -- Work Using LIFO Principle => Last In First Out
+  -- Code Execution Is Synchronous.
+  -- Call Stack Detect Web API Methods And Leave It To The Browser To Handle It
+
+  Web API
+  -- Methods Available From The Environment => Browser
+*/
+
+setTimeout(() => {
+  console.log("Web API");
+}, 0);
+
+function onee() {
+  console.log("One");
+}
+function twoo() {
+  onee();
+  console.log("Two");
+}
+function threee() {
+  twoo();
+  console.log("Three");
+}
+
+threee();
+
+/*
+=================================
+console.log("One");
+=================================
+function onee() {
+  console.log("One");
+}
+=================================
+function twoo() {
+  onee();
+  console.log("Two");
+}
+=================================
+function threee() {
+  twoo();
+  console.log("Three");
+}
+=================================
+*/
+
+console.log("#####");
+console.log("One");
+console.log("Two");
+console.log("Three");
+
+/*
+  To Understand Ajax, Fetch, Promises
+
+  Event Loop + Callback Queue
+
+  Story
+  - JavaScript Is A Single Threaded Language "All Operations Executed in Single Thread"
+  - Call Stack Track All Calls
+  - Every Function Is Done Its Poped Out
+  - When You Call Asynchronous Function It Sent To Browser API
+  - Asynchronous Function Like Settimeout Start Its Own Thread
+  - Browser API Act As A Second Thread
+  - API Finish Waiting And Send Back The Function For Processing
+  - Browser API Add The Callback To Callback Queue
+  - Event Loop Wait For Call Stack To Be Empty
+  - Event Loop Get Callback From Callback Queue And Add It To Call Stack
+  - Callback Queue Follow FIFO "First In First Out" Rule
+*/
+
+console.log("One");
+setTimeout(() => { // btkon a5er 7aga ttb3t
+  console.log("Three");
+}, 0);
+setTimeout(() => {
+  console.log("Four");
+}, 0);
+
+console.log("Two");
+
+let myVar = 100;
+myVar += 100;
+console.log(myVar);
+
+/*
+  AJAX
+  - Asynchronous JavaScript And XML
+  - Approach To Use Many Technologies Together [HTML, CSS, Js, DOM]
+  - It Use "XMLHttpRequest" Object To Interact With The Server
+  - You Can Fetch Data Or Send Data Without Page Refresh
+  - Examples
+  --- Youtube Studio
+  --- Google Drive
+  --- Upload Article Photo
+  --- Form Check Name
+
+  Test new XMLHttpRequest();
+  Request And Response
+  Status Code
+*/
+
+let req = new XMLHttpRequest();
+console.log(req);
+
+/*
+  Ajax
+  - Ready State => Status Of The Request
+    [0] Request Not Initialized
+    [1] Server Connection Established
+    [2] Request Received
+    [3] Processing Request
+    [4] Request Is Finished And Response Is Ready (*)
+  - Status 
+  [200] Response Is Successful (*)
+  [404] Not Found
+*/
+
+let myRequest = new XMLHttpRequest();
+myRequest.open("GET", "https://api.github.com/users/elzerowebschool/repos"); 
+// open(method, url) w btosta5dm l ta7deed no3 el talab, like(POST, GET)
+// GET ==> Get Data from Server
+// URL ==> API Data from elzerowebschool
+myRequest.send(); // send request to server
+console.log(myRequest);
+
+myRequest.onreadystatechange = function () { // fuction hatshta8l kol ma request status et8ayrt
+  // console.log(myRequest.readyState);
+  // console.log(myRequest.status);
+  if (this.readyState === 4 && this.status === 200) { // 3lshan at2akd en num 4 et7a22at w num 200
+    console.log(this.responseText); // include data from server in form of text (JSON) (String)
+  }
+};
+/*
+  Ajax
+  Loop On Data
+
+  Search
+  - Cross Origin API [CORS]
+  - API Authentication
+*/
+
+let myRequest1 = new XMLHttpRequest();
+myRequest1.open("GET", "https://api.github.com/users/elzerowebschool/repos");
+myRequest1.send();
+myRequest1.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    // console.log(this.responseText);
+    let jsData = JSON.parse(this.responseText); //convert to JS, 
+    // console.log(jsData);
+    for (let i = 0; i < jsData.length; i++) {
+      let div = document.createElement("div");
+      let repoName = document.createTextNode(jsData[i].full_name); // (like: elzerowebschool/repo-name)
+      div.appendChild(repoName);
+      document.body.appendChild(div);
+    }
+  }
+};
